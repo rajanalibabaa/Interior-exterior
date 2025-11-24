@@ -86,7 +86,7 @@ export default function Footer() {
               Quick Links
             </Typography>
 
-            {["Home", "About Us", "Services", "Gallery", "Testimonials", "Contact"].map(
+            {["Home", "About Us", "Services", "Gallery", "Contact Us"].map(
               (item) => (
                 <Link
                   key={item}
@@ -113,14 +113,11 @@ export default function Footer() {
             </Typography>
 
             {[
-              "Interior Painting",
-              "Exterior Painting",
-              "Commercial Painting",
-              "Wallpaper Installation",
-              "Color Consultation",
-              "Surface Preparation",
-              "Cleaning Services",
-              "Wall Designing",
+              "Interior Design",
+              "Exterior Design",
+             "Waterproofing",
+             "Wood Polishing",
+             "Commercial Painting",
             ].map((service) => (
               <Link
                 key={service}
