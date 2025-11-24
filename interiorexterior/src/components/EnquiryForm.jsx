@@ -23,8 +23,8 @@ const HeroContainer = styled(Box)(({ theme }) => ({
 const FormWrapper = styled(Box)(({ theme }) => ({
   width: "100%",
   maxWidth: 300,
-  padding: "26px 22px",
-  background: "#FEEE91",
+  padding: "20px 22px",
+  background: "#feee91ff",
   backdropFilter: "blur(12px)",
   borderRadius: "18px",
   boxShadow: "0 12px 30px rgba(0,0,0,0.18)",

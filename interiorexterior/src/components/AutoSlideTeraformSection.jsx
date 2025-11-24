@@ -77,7 +77,6 @@ export default function ModernAutoSlideSection() {
   return (
     <Box sx={{ 
       width: '100%', 
-      py: { xs: 0, md: 12 },
       px: { xs: 2, sm: 3, md: 13 },
       background: 'linear-gradient(305deg, #FCF9EA 0%, #ffffff 50%, #ffffffff 100%)'
     }}>

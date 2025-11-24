@@ -79,8 +79,8 @@ const navigate = useNavigate();
     <Box
       ref={containerRef}
       sx={{
-        p: { xs: 2, sm: 4, md: 4 },
-        mt: { xs: 0, md: 6 },
+        p: { xs: 2, sm: 4, md: 9 },
+        mt: { xs: 0, md: 1 },
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -238,7 +238,7 @@ const navigate = useNavigate();
           {!isMobile && (
             <Box sx={{ 
               mt: 0,
-              ml: { lg: 4, xl: 8 }
+              ml: { lg: 4, xl: 20 }
             }}>
               <EnquiryForm 
                 title="Free Quote" 
