@@ -36,7 +36,7 @@ import {useNavigate} from 'react-router-dom'
     "Interior Design",
     "Exterior Design",
     "Waterproofing",
-    "Wood Profiling",
+    "Wood Polishing",
     "Commercial Painting",  
   ];
 
