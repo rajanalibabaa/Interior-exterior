@@ -48,7 +48,7 @@ const Contact = () => {
     submissionData.append('_captcha', 'false');
     submissionData.append('_template', 'table');
     
-    // Optional: Add a thank you message in the response
+    
     submissionData.append('_autoresponse', `Thank you ${formData.fullName} for requesting a FREE estimate! We will contact you shortly.`);
 
     // Submit the form data
