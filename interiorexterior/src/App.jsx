@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import About from './pages/About';
 // import InteriorExteriorContent from './pages/Services';
 import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
 // MUI Theme
 const theme = createTheme({
   palette: {
@@ -28,6 +29,7 @@ function App() {
   <Route path='/about' element={<About/>} />
   {/* <Route path='/services' element={<InteriorExteriorContent/>} /> */}
   <Route path='/gallery' element={<Gallery/>} />
+  <Route path ='/contact' element={<Contact/>}/>
 </Routes>
 <Footer/>
         {/* </Suspense> */}
