@@ -46,6 +46,18 @@ import woodProffing8 from '../assets/woodProffing8.jpg'
 import woodProffing9 from '../assets/woodProffing9.jpg'
 import woodProffing10 from '../assets/woodProffing10.jpg'
 
+import commercialImage from '../assets/commercial1.jpg'
+import commercialImage2 from '../assets/commercial2.jpg'
+import commercialImage3 from '../assets/commercial3.jpg'
+import commercialImage4 from '../assets/commercial4.jpg'
+import commercialImage5 from '../assets/commercial5.jpg'
+import commercialImage6 from '../assets/commercial6.jpg'
+import commercialImage7 from '../assets/commercial7.jpg'
+import commercialImage8 from '../assets/commercial8.jpg'
+import commercialImage9 from '../assets/commercial9.jpg'
+import commercialImage10 from '../assets/commercial10.jpg'
+
+
 const interiorImages = [
   interiorImg1,
   interiorImg2,
@@ -83,6 +95,19 @@ const woodProffing = [
   woodProffing2,woodProffing3,woodProffing4,woodProffing5,woodProffing6,woodProffing7,woodProffing8,woodProffing9,woodProffing10
 ]
 
+
+const commercialImages = [
+  commercialImage,
+  commercialImage2,
+  commercialImage3,
+  commercialImage4,
+  commercialImage5,
+  commercialImage6,
+  commercialImage7,
+  commercialImage8,
+  commercialImage9,
+  commercialImage10
+]
 const InteriorExteriorGrid = ({
   title,
   description,
@@ -197,6 +222,13 @@ const Gallery = () => {
       description="Transform your exterior with stunning exterior painting."
       images={woodProffing}        // ✅ FIXED
       buttonText="Explore Wood Proffing"
+    />
+
+    <InteriorExteriorGrid
+      title="Commercial Painting"
+      description="Transform your exterior with stunning exterior painting."
+      images={commercialImages}        // ✅ FIXED
+      buttonText="Explore Commercial Painting"
     />
     </>
   );

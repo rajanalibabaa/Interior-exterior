@@ -117,7 +117,7 @@ export default function Navigation() {
         )}
 
         {/* Logo */}
-        <motion.img
+        <img 
           src={logo}
           alt="Brand"
           style={{
@@ -128,6 +128,7 @@ export default function Navigation() {
           transition={{ type: "spring", stiffness: 300 }}
           onClick={() => console.log("Navigate to home")} // Add navigation
         />
+          
 
         {/* CTA Button */}
         <Button
