@@ -13,7 +13,7 @@ const backgroundMedia = [
   "/src/assets/interiorexteriorherobg4.mp4",
 ];
 
-export default function BackgroundOnlyHero() {
+export default function  BackgroundOnlyHero() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

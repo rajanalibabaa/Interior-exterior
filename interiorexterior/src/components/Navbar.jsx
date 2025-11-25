@@ -133,7 +133,9 @@ export default function Navigation() {
         {/* CTA Button */}
         <Button
           variant="contained"
+          onClick={()=>navigate('/contact')}
           sx={{
+            
             background: "#FF0060",
             borderRadius: 30,
             padding: "8px 20px",

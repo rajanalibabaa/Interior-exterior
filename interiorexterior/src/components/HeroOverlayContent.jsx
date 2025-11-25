@@ -7,21 +7,21 @@ import {
   Chip,
   useTheme,
   useMediaQuery,
-  Dialog
+  Dialog,
+  Fab,
+  IconButton
 } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { 
   Star, 
-  Phone,
   Email,
   LocationOn,
-  Schedule
+  Schedule,
+  Close
 } from '@mui/icons-material';
+import MessageIcon from '@mui/icons-material/Message';
 import EnquiryForm from './EnquiryForm';
 import { useNavigate } from 'react-router-dom';
-
-// Floating Elements Component
-
 
 // Feature Chip Component
 const FeatureChip = ({ icon, text, delay = 0 }) => (
@@ -57,8 +57,73 @@ const FeatureChip = ({ icon, text, delay = 0 }) => (
   </motion.div>
 );
 
-// Floating Mobile Button
-
+// WhatsApp-style Floating Mobile Button
+const FloatingMobileEnquiryButton = ({ onClick }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay: 0.6 }}
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    style={{
+      position: 'fixed',
+      // top: 30,
+      bottom: 130,
+      right: 15,
+      zIndex: 1000
+    }}
+  >
+    <Fab
+      color="primary"
+      aria-label="get quote"
+      onClick={onClick}
+      sx={{
+        width: 45,
+        height: 45,
+        background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+        boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
+        '&:hover': {
+          background: 'linear-gradient(135deg, #128C7E 0%, #0C6B5E 100%)',
+          boxShadow: '0 6px 25px rgba(37, 211, 102, 0.6)',
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          top: -2,
+          left: -2,
+          right: -2,
+          bottom: -2,
+          background: 'linear-gradient(135deg, #25D366, #128C7E)',
+          borderRadius: '50%',
+          zIndex: -1,
+          animation: 'pulse 2s infinite',
+        }
+      }}
+    >
+      <MessageIcon 
+        sx={{ 
+          fontSize: 28,
+          color: 'white'
+        }} 
+      />
+    </Fab>
+    
+    {/* Floating notification dot */}
+    <Box
+      sx={{
+        position: 'absolute',
+        top: 8,
+        right: 8,
+        width: 12,
+        height: 12,
+        backgroundColor: '#FF4081',
+        borderRadius: '50%',
+        border: '2px solid white',
+        animation: 'pulse 1.5s infinite'
+      }}
+    />
+  </motion.div>
+);
 
 // Main Component
 const ProfessionalHeroBanner = () => {
@@ -66,10 +131,14 @@ const ProfessionalHeroBanner = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: '-50px' });
-const navigate = useNavigate();
+  const navigate = useNavigate();
+  
+  // State for mobile form dialog
+  const [openMobileForm, setOpenMobileForm] = useState(false);
+
   const features = [
     { icon: <Star />, text: 'Premium Quality' },
-    { icon: <Phone />, text: '24/7 Support' },
+    { icon: <MessageIcon />, text: '24/7 Support' },
     { icon: <LocationOn />, text: 'Local Experts' },
     { icon: <Schedule />, text: 'On-Time' },
     { icon: <Email />, text: 'Free Estimate' }
@@ -89,8 +158,6 @@ const navigate = useNavigate();
         minHeight: { xs: 'auto', md: '100vh' }
       }}
     >
-      {/* <FloatingShapes /> */}
-      
       <Container maxWidth="xl" sx={{ py: { xs: 2, md: 0 } }}>
         <Box
           sx={{
@@ -100,7 +167,7 @@ const navigate = useNavigate();
               lg: '1.2fr 0.8fr' 
             },
             gap: { xs: 3, md: 4, lg: 6 },
-            // alignItems: 'center',
+            alignItems: 'center',
             minHeight: { xs: 'auto', lg: '70vh' }
           }}
         >
@@ -215,7 +282,7 @@ const navigate = useNavigate();
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   variant="contained"
-                  onClick={()=>navigate('/services')}
+                  onClick={() => navigate('/services')}
                   size="large"
                   sx={{
                     background: "#AB46D2",
@@ -249,7 +316,7 @@ const navigate = useNavigate();
         </Box>
 
         {/* Mobile Form Dialog */}
-        {/* {isMobile && (
+        {isMobile && (
           <>
             <FloatingMobileEnquiryButton onClick={() => setOpenMobileForm(true)} />
             <Dialog
@@ -261,19 +328,83 @@ const navigate = useNavigate();
                 sx: {
                   borderRadius: 3,
                   m: 2,
-                  background: "rgba(255, 255, 255, 1)",
+                  background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
                   overflow: "hidden",
+                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  maxHeight: '90vh',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }
               }}
             >
-              <EnquiryForm
-                title="Get Free Quote"
-                subtitle="Start your project today"
-              />
+              {/* Dialog Header */}
+              <Box
+                sx={{
+                  background: 'linear-gradient(135deg, #AB46D2 0%, #7B1FA2 100%)',
+                  color: 'white',
+                  p: 2,
+                  position: 'relative'
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <Box>
+                    <Typography variant="h6" fontWeight="bold">
+                      Get Free Quote
+                    </Typography>
+                    <Typography variant="body2" sx={{ opacity: 0.9 }}>
+                      Start your project today
+                    </Typography>
+                  </Box>
+                  <IconButton 
+                    onClick={() => setOpenMobileForm(false)}
+                    sx={{ 
+                      color: 'white',
+                      '&:hover': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                      }
+                    }}
+                  >
+                    <Close />
+                  </IconButton>
+                </Box>
+              </Box>
+
+              {/* Form Content */}
+              <Box sx={{ 
+                flex: 1,
+                overflow: 'auto',
+                p: 3
+              }}>
+                <EnquiryForm
+                  title=""
+                  subtitle=""
+                  onClose={() => setOpenMobileForm(false)}
+                  compact={true}
+                />
+              </Box>
             </Dialog>
           </>
-        )} */}
+        )}
       </Container>
+
+      {/* Add pulse animation */}
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.05);
+            opacity: 0.8;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      `}</style>
     </Box>
   );
 };

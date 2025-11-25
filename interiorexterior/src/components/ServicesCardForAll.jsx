@@ -6,7 +6,7 @@ import {
   Grid,
   Typography,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import servicesData from '../components/ServicesDatas.jsx';
@@ -141,14 +141,22 @@ const ServiceDetail = () => {
 
             {/* Our Approach */}
             <Typography
-              paragraph
-              sx={{
-                fontWeight: 800,
-                    mb: 3,
-                    color: '#2C5282',
-                    fontSize: { xs: '2rem', sm: '2.3rem', md: '2.5rem' },
-                    lineHeight: 1.2,
-              }}
+              variant="h6"
+                fontWeight={700}
+                letterSpacing={2}
+                sx={{
+                  color: "#77037B",
+                  mb: 1,
+                  '&::before': {
+                    content: '""',
+                    display: 'block',
+                    width: 90,
+                    height: 3,
+                    background: '#F94A29',
+                    mb: 1,
+                    marginInline: { xs: "auto", md: 0 }
+                  }
+                }}
             >
               {service.ourApproach}
             </Typography>
@@ -176,15 +184,22 @@ const ServiceDetail = () => {
               {/* Text Column */}
               <Grid item xs={12} md={6}>
                 <Typography
-                  variant="h3"
-                  sx={{
-                    fontWeight: 800,
-                    mb: 3,
-                    color: '#2C5282',
-                    fontSize: { xs: '2rem', sm: '2.3rem', md: '2.5rem' },
-                    lineHeight: 1.2,
-                    marginRight:12
-                  }}
+                  variant="h6"
+                fontWeight={700}
+                letterSpacing={2}
+                sx={{
+                  color: "#77037B",
+                  mb: 1,
+                  '&::before': {
+                    content: '""',
+                    display: 'block',
+                    width: 90,
+                    height: 3,
+                    background: '#F94A29',
+                    mb: 1,
+                    marginInline: { xs: "auto", md: 0 }
+                  }
+                }}
                 >
                   What We Offer
                 </Typography>
@@ -244,15 +259,22 @@ const ServiceDetail = () => {
 
             {/* Why Choose Us */}
             <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 800,
-                mt: { xs: 10, md: 6 },
-                mb: 3,
-                color: '#2C5282',
-                fontSize: { xs: '2rem', sm: '2.3rem', md: '2.5rem' },
-                lineHeight: 1.2,
-              }}
+             variant="h6"
+                fontWeight={700}
+                letterSpacing={2}
+                sx={{
+                  color: "#77037B",
+                  mb: 1,
+                  '&::before': {
+                    content: '""',
+                    display: 'block',
+                    width: 90,
+                    height: 3,
+                    background: '#F94A29',
+                    mb: 1,
+                    marginInline: { xs: "auto", md: 0 }
+                  }
+                }}
             >
               Why Choose Us?
             </Typography>
