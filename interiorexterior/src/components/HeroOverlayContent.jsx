@@ -79,8 +79,8 @@ const navigate = useNavigate();
     <Box
       ref={containerRef}
       sx={{
-        p: { xs: 2, sm: 4, md: 4 },
-        mt: { xs: 0, md: 6 },
+        p: { xs: 2, sm: 4, md: 9 },
+        mt: { xs: 0, md: 1 },
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -166,7 +166,7 @@ const navigate = useNavigate();
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 sx={{
-                  color: "rgba(255,255,255,0.85)",
+                  color: "rgba(255, 255, 255, 1)",
                   fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
                   fontWeight: 400,
                   textAlign: { xs: "center", lg: "left" },
@@ -238,7 +238,7 @@ const navigate = useNavigate();
           {!isMobile && (
             <Box sx={{ 
               mt: 0,
-              ml: { lg: 4, xl: 8 }
+              ml: { lg: 4, xl: 20 }
             }}>
               <EnquiryForm 
                 title="Free Quote" 

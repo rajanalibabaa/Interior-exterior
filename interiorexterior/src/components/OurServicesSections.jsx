@@ -189,7 +189,7 @@ export default function ServicesSection() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       sx={{
-        px: { xs: 2, md: 6 },
+        px: { xs: 2, md: 10 },
         py: { xs: 4, md: 12 },
         // background: "linear-gradient(135deg, #fff9f5 0%, #fffdf9 50%, #f8f5ff 100%)",
         overflow: "hidden",
@@ -237,7 +237,7 @@ export default function ServicesSection() {
                   <img src={img2} alt="img"  style={{ width: "100vh", height: "100vh", objectFit: "contain" }} />
                 </Box>
 
-                <Box
+                {/* <Box
                   component={motion.div}
                   animate={{
                     y: [0, 10, 0],
@@ -264,7 +264,7 @@ export default function ServicesSection() {
                   }}
                 >
                     <img src={img3} alt="img"  style={{  width: "100vh", height: "100vh", objectFit: "contain" }} />
-                </Box>
+                </Box> */}
       <Box
         sx={{
           position: "absolute",
@@ -332,7 +332,7 @@ export default function ServicesSection() {
         </Box>
 
         {/* Modern Service Layout */}
-        <Grid container spacing={6} display={"flex"}  justifyContent={'space-evenly'} >
+        <Grid container spacing={2} display={"flex"}  justifyContent={'space-evenly'} >
           {/* Left Services Column */}
           <Grid item xs={12} md={3}>
             <motion.div variants={containerVariant}>

@@ -49,17 +49,17 @@ const HowItWorks = () => {
 
           <Box
             sx={{
-              width: 600,
+              width: '100%',
               height: 2,
               background: "#ff0062",
-              mx: "auto",
+              // mx: "auto",
               position: "relative",
               mt: 1,
             }}
           >
             <Box
               sx={{
-                width: 50,
+                width: 50,  
                 height: 50,
                 borderRadius: "50%",
                 background: "#ffbb0f",

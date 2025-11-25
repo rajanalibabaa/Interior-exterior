@@ -125,9 +125,9 @@ export default function BackgroundOnlyHero() {
           textAlign: "center",
  background: `
           linear-gradient(135deg, 
-            rgba(15, 23, 42, 0.95) 0%,
-            rgba(0, 0, 0, 0.92) 35%,
-            rgba(0, 0, 0, 0) 100%
+            rgba(15, 23, 42, 0.66) 0%,
+            rgba(0, 0, 0, 0.51) 35%,
+            rgba(0, 0, 0, 0.09) 100%
           ),
           radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0) 0%, transparent 50%),
           radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0) 0%, transparent 50%)
