@@ -29,7 +29,7 @@ import {
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import logo from "../assets/Interiorexterior_logo.png";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
   const servicesItems = [
@@ -73,13 +73,13 @@ export default function Navigation() {
   // Mobile bottom navigation handler
   const handleBottomNavChange = (event, newValue) => {
     setBottomNavValue(newValue);
-    
+
     // Special handling for Services - open drawer instead of navigating
     if (navigationItems[newValue].label === "Services") {
       setServicesDrawerOpen(true);
       return;
     }
-    
+
     // Handle navigation for other items
     console.log("Navigating to:", navigationItems[newValue].label);
     // Add your routing logic here (React Router, etc.)
@@ -168,9 +168,9 @@ export default function Navigation() {
               <Box
                 key={item.label}
                 onClick={handleServicesClick}
-                sx={{ 
-                  cursor: "pointer", 
-                  display: "flex", 
+                sx={{
+                  cursor: "pointer",
+                  display: "flex",
                   alignItems: "center",
                   padding: "16px 0",
                   "&:hover": { color: "#000000ff" },
@@ -188,7 +188,7 @@ export default function Navigation() {
             ) : (
               <Typography
                 key={item.label}
-                onClick={() => navigate(item.path) }
+                onClick={() => navigate(item.path)}
                 sx={{
                   cursor: "pointer",
                   padding: "16px 0",
@@ -215,17 +215,20 @@ export default function Navigation() {
               },
             }}
           >
+
             {servicesItems.map((service) => (
               <MenuItem
                 key={service}
-                onClick={handleServicesMenuClose}
+                onClick={() => {
+                  handleServicesMenuClose();
+                  const path = service.toLowerCase().replace(/\s+/g, '');
+                  navigate(`/services/${path}`);
+                }}
                 sx={{
-                  "&:hover": {
-                    background: "#E83C91",
-                  },
+                  "&:hover": { background: "#E83C91" },
                 }}
               >
-                <Typography onClick={() => navigate('/services')}>{service}</Typography>
+                {service}
               </MenuItem>
             ))}
           </Menu>
@@ -287,9 +290,9 @@ export default function Navigation() {
         open={servicesDrawerOpen}
         onClose={() => setServicesDrawerOpen(false)}
         PaperProps={{
-          sx: { 
-            width: 280, 
-            background: "#f21313ff", 
+          sx: {
+            width: 280,
+            background: "#f21313ff",
             color: "white",
             borderTopLeftRadius: 12,
             borderBottomLeftRadius: 12,
@@ -299,9 +302,9 @@ export default function Navigation() {
         <Box sx={{ padding: 2 }}>
           {/* Drawer Header */}
           <Box
-            sx={{ 
-              display: "flex", 
-              justifyContent: "space-between", 
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
               alignItems: "center",
               mb: 3,
               borderBottom: "1px solid rgba(255,255,255,0.2)",
@@ -311,8 +314,8 @@ export default function Navigation() {
             <Typography variant="h6" sx={{ fontWeight: 600 }}>
               Our Services
             </Typography>
-            <IconButton 
-              onClick={() => setServicesDrawerOpen(false)} 
+            <IconButton
+              onClick={() => setServicesDrawerOpen(false)}
               sx={{ color: "white" }}
             >
               <Close />
@@ -323,28 +326,13 @@ export default function Navigation() {
           <List sx={{ padding: 0 }}>
             {servicesItems.map((service) => (
               <ListItemButton
-                key={service}
                 onClick={() => {
-                  console.log(`Navigate to ${service}`);
+                  const path = service.toLowerCase().replace(/\s+/g, '');
+                  navigate(`/services/${path}`);
                   setServicesDrawerOpen(false);
                 }}
-                sx={{
-                  borderBottom: "1px solid rgba(255,255,255,0.1)",
-                  "&:hover": {
-                    background: "rgba(232, 60, 145, 0.2)",
-                  },
-                  "&:last-child": {
-                    borderBottom: "none",
-                  },
-                }}
               >
-                <ListItemText 
-                  primary={service}
-                  primaryTypographyProps={{
-                    fontSize: "1rem",
-                    fontWeight: 500,
-                  }}
-                />
+                <ListItemText primary={service} />
               </ListItemButton>
             ))}
           </List>

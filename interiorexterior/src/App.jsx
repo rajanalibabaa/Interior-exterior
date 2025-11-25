@@ -9,6 +9,7 @@ import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 // MUI Theme
+import ServiceDetail from './components/ServicesCardForAll';// MUI Theme
 const theme = createTheme({
   palette: {
     text: { primary: "#333333" },
@@ -28,6 +29,9 @@ function App() {
   <Route path='/' element={<HomePage/>} />
   <Route path='/about' element={<About/>} />
   {/* <Route path='/services' element={<InteriorExteriorContent/>} /> */}
+
+ <Route path="/services/:serviceId" element={<ServiceDetail />} />
+  
   <Route path='/gallery' element={<Gallery/>} />
   <Route path ='/contact' element={<Contact/>}/>
 </Routes>
