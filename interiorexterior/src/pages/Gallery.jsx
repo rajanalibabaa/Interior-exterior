@@ -115,82 +115,108 @@ const InteriorExteriorGrid = ({
   buttonText = "Explore",
   onClick,
 }) => {
-  console.log("Images Received:", images); // Debug
+  console.log("Images Received:", images); 
   return (
-    <Box sx={{ width: "100%", py: { xs: 4, md: 8 },px: { xs: 2, md: 10} }}>
-         <Typography variant="h6"
-              fontWeight={700}
-              letterSpacing={2}
-              sx={{ color: "#77037B", mb: 1,
-                '&::before': {
-                  content: '""',
-                  display: 'block',
-                  width: 90,
-                  height: 3,
-                  background: '#F94A29',
-                  mb: 1
-                }
-
-               }}>
+    <Box sx={{ width: "100%", py: { xs: 3, md: 4 },px: { xs: 2, md: 10} }}>
+        <Typography
+                        variant="h6"
+                        fontWeight={700}
+                        letterSpacing={2}
+                        sx={{
+                          textAlign: { xs: "center", md: "left" },
+                          color: "#77037B",
+                          mb: 1,
+                          fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
+                          '&::before': {
+                            content: '""',
+                            display: 'block',
+                            width: { xs: 70, sm: 80, md: 90 },
+                            height: 3,
+                            background: '#F94A29',
+                            mb: 1,
+                            marginInline: { xs: "auto", md: 0 }
+                          }
+                        }}
+                      >
             {title}
           </Typography>
 
-          <Typography  variant="h3"
-              fontWeight={900}
-              sx={{
-                mb: 3,
-                lineHeight: 1.2,
-                fontSize: { xs: "2rem", md: "2.5rem" },
-                background: "linear-gradient(90deg, #0F1B2D, #153E90)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}>
+          <Typography
+                          variant="h3"
+                          fontWeight={900}
+                          sx={{
+                            mb: 3,
+                            lineHeight: 1.2,
+                            fontSize: { 
+                              xs: "1.2rem", 
+                              sm: "1.8rem", 
+                              md: "2.2rem", 
+                              lg: "2.0rem" 
+                            },
+                            background: "linear-gradient(90deg, #0F1B2D, #153E90)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                          }}
+                        >
             {description}
           </Typography>
 
          
-      <Grid container spacing={1} display={'grid'} gridTemplateColumns={"repeat(auto-fill, minmax(250px, 1fr))"}>
+   <Box
+  sx={{
+    display: "flex",
+    gap: 2,
+    overflowX: { xs: "auto", sm: "visible" },
+    scrollBehavior: "smooth",
+    py: 1,
+    flexWrap: { xs: "nowrap", sm: "wrap" }, // No wrap on mobile, wrap on larger screens
+    "&::-webkit-scrollbar": { 
+      display: { xs: "none", sm: "none" } 
+    }, 
+  }}
+>
+  {images.map((img, index) => (
+    <Box
+      key={index}
+      component="img"
+      src={img}
+      sx={{
+        // Adjust width for different screen sizes
+        width: { xs: "250px", sm: "auto" },
+        height: { xs: "200px", sm: "240px", md: "220px" },
+        flex: { xs: "0 0 auto", sm: "1 1 auto" }, // Fixed size on mobile, flexible on larger screens
+        borderRadius: "12px",
+        objectFit: "cover",
+        // Optional: Add max-width for larger screens to control layout
+        maxWidth: { sm: "calc(50% - 16px)", md: "calc(33.333% - 16px)" },
+      }}
+    />
+  ))}
+</Box>
 
-        {images.map((img, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Box
-            component={'img'}
-            src={img}
-              sx={{
-                width: "100%",
-                maxWidth: "250px",
-                height: { xs: "200px", sm: "240px", md: "220px" },
-                borderRadius: "12px",
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-              }}
-            />
-          </Grid>
-        ))}
-      </Grid>
-       <Button 
-       
-       variant="contained"
-              sx={{
-                mt: 3,
-                mb: 0,
-                px: 4,
-                py: 1.5,
-                background: '#ff0062ff',
-                color: "#ffffffff",
-                fontWeight: 800,
-                fontSize: "16px",
-                display: "block",
-                alignSelf: "center",
-                borderRadius: 2,    
-                textTransform: "none",
-                // boxShadow: "0 15px 35px rgba(0,208,142,0.3)",
-                "&:hover": {
-                  background: "#ff0062e7",
-                },
-              }} onClick={onClick}>
-            {buttonText}
-          </Button>
+      <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start"} }}>
+  <Button
+    variant="contained"
+    sx={{
+      mt: 3,
+      px: 4,
+      py: 1.5,
+      background: '#ff0062ff',
+      color: "#ffffffff",
+      fontWeight: 800,
+      fontSize: "16px",
+      borderRadius: 2,
+      textTransform: "none",
+      "&:hover": {
+        background: "#ff0062e7",
+      },
+    }}
+    onClick={onClick}
+  >
+    {buttonText}
+  </Button>
+</Box>
+
     </Box>
   );
 };

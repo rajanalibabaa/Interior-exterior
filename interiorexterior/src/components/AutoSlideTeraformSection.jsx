@@ -77,7 +77,8 @@ export default function ModernAutoSlideSection() {
   return (
     <Box sx={{ 
       width: '100%', 
-      px: { xs: 2, sm: 3, md: 13 },
+      px: { xs: 2, sm: 3, md: 12 },
+      py: { xs: 4, sm: 5, md: 4 },
       background: 'linear-gradient(305deg, #FCF9EA 0%, #ffffff 50%, #ffffffff 100%)'
     }}>
       <motion.div
@@ -85,23 +86,26 @@ export default function ModernAutoSlideSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <Typography
-          variant="h6"
-          fontWeight={700}
-          letterSpacing={2}
-          sx={{ 
-            color: "#77037B", 
-            mb: 1,
-            '&::before': {
-              content: '""',
-              display: 'block',
-              width: 90,
-              height: 3,
-              background: '#F94A29',
-              mb: 1
-            }
-          }}
-        >
+       <Typography
+                           variant="h6"
+                           fontWeight={700}
+                           letterSpacing={2}
+                           sx={{
+                             textAlign: { xs: "center", md: "left" },
+                             color: "#77037B",
+                             mb: 1,
+                             fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
+                             '&::before': {
+                               content: '""',
+                               display: 'block',
+                               width: { xs: 70, sm: 80, md: 90 },
+                               height: 3,
+                               background: '#F94A29',
+                               mb: 1,
+                               marginInline: { xs: "auto", md: 0 }
+                             }
+                           }}
+                         >
           TRANSFORM YOUR SPACE
         </Typography>
       </motion.div>
@@ -111,19 +115,23 @@ export default function ModernAutoSlideSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.1 }}
       >
-        <Typography
-          variant="h3"
-          fontWeight={900}
-          sx={{
-            mb: 3,
-            lineHeight: 1.2,
-            fontSize: { xs: "1.75rem", sm: "2rem", md: "2.5rem" },
-            background: "linear-gradient(90deg, #0F1B2D, #153E90)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textAlign: { xs: 'center', lg: 'left' }
-          }}
-        >
+       <Typography
+                           variant="h3"
+                           fontWeight={900}
+                           sx={{
+                             mb: 3,
+                             lineHeight: 1.2,
+                             fontSize: { 
+                               xs: "1.2rem", 
+                               sm: "1.8rem", 
+                               md: "2.2rem", 
+                               lg: "2.0rem" 
+                             },
+                             background: "linear-gradient(90deg, #0F1B2D, #153E90)",
+                             WebkitBackgroundClip: "text",
+                             WebkitTextFillColor: "transparent",
+                           }}
+                         >
           Elevate Your Property with Expert Painting Solutions
         </Typography>
       </motion.div>
@@ -141,8 +149,9 @@ export default function ModernAutoSlideSection() {
         {/* LEFT TEXT CONTENT */}
         <Box sx={{ 
           flex: 1,
-          textAlign: { xs: 'center', lg: 'left' },
-          maxWidth: { lg: '520px' },
+        
+          textAlign: { xs: 'center', lg: 'justify' },
+          maxWidth: { lg: '600px' },
           width: '100%'
         }}>
           {/* Description */}
@@ -156,7 +165,8 @@ export default function ModernAutoSlideSection() {
                 fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' },
                 lineHeight: 1.7,
                 color: '#555',
-                mb: 3
+                mb: 3,
+                textAlign:"justify"
               }}
             >
               As premier painting contractors, we deliver exceptional value and unmatched quality 
@@ -184,7 +194,7 @@ export default function ModernAutoSlideSection() {
                   display: 'flex', 
                   alignItems: 'center', 
                   mb: 1.5,
-                  justifyContent: { xs: 'flex-start', sm: 'center', lg: 'flex-start' }
+                  justifyContent: { xs: 'flex-start', sm: 'flex-start', lg: 'flex-start' }
                 }}>
                   <Box
                     sx={{
@@ -252,6 +262,7 @@ export default function ModernAutoSlideSection() {
             display: "flex",
             justifyContent: "center",
             width: '100%',
+            mb:{ xs: 1, lg: 5 },
             maxWidth: { xs: '100%', lg: '600px' }
           }}
         >
@@ -404,16 +415,7 @@ export default function ModernAutoSlideSection() {
                 display: { xs: 'block', sm: 'none' },
               }}
             >
-              <Typography
-                variant="caption"
-                sx={{
-                  color: "rgba(255,255,255,0.8)",
-                  fontSize: "0.7rem",
-                  fontWeight: 500,
-                }}
-              >
-                Swipe to navigate
-              </Typography>
+            
             </Box>
           </Box>
         </Box>

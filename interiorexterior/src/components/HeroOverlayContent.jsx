@@ -67,10 +67,9 @@ const FloatingMobileEnquiryButton = ({ onClick }) => (
     whileTap={{ scale: 0.9 }}
     style={{
       position: 'fixed',
-      // top: 30,
-      bottom: 130,
-      right: 15,
-      zIndex: 1000
+      bottom: 200,
+      right: 5,
+      zIndex:  9999,
     }}
   >
     <Fab

@@ -32,13 +32,13 @@ import logo from "../assets/Interiorexterior_logo.png";
 import { useNavigate } from 'react-router-dom'
 
 
-  const servicesItems = [
-    "Interior Design",
-    "Exterior Design",
-    "Waterproofing",
-    "Wood Polishing",
-    "Commercial Painting",  
-  ];
+const servicesItems = [
+  "Interior Design",
+  "Exterior Design",
+  "Waterproofing",
+  "Wood Polishing",
+  "Commercial Painting",
+];
 
 const navigationItems = [
   { label: "Home", icon: <Home />, path: "/" },
@@ -74,16 +74,17 @@ export default function Navigation() {
   const handleBottomNavChange = (event, newValue) => {
     setBottomNavValue(newValue);
 
-    // Special handling for Services - open drawer instead of navigating
-    if (navigationItems[newValue].label === "Services") {
+    const selectedItem = navigationItems[newValue];
+
+    if (selectedItem.label === "Services") {
       setServicesDrawerOpen(true);
       return;
     }
 
-    // Handle navigation for other items
-    console.log("Navigating to:", navigationItems[newValue].label);
-    // Add your routing logic here (React Router, etc.)
+    navigate(selectedItem.path);
   };
+
+
 
   // Handle Services click on desktop
   const handleServicesClick = (event) => {
@@ -117,25 +118,21 @@ export default function Navigation() {
         )}
 
         {/* Logo */}
-        <img 
+        <img
           src={logo}
           alt="Brand"
-          style={{
-            height: isMobile ? 50 : 70,
-            cursor: "pointer",
-          }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          onClick={() => console.log("Navigate to home")} // Add navigation
+          style={{ height: isMobile ? 50 : 70, cursor: "pointer" }}
+          onClick={() => navigate("/")}
         />
-          
+
+
 
         {/* CTA Button */}
         <Button
           variant="contained"
-          onClick={()=>navigate('/contact')}
+          onClick={() => navigate("/contact")}
           sx={{
-            
+
             background: "#FF0060",
             borderRadius: 30,
             padding: "8px 20px",

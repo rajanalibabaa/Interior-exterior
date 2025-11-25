@@ -22,17 +22,31 @@ export default function WeAre() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      sx={{ px: { xs: 2, md: 12 },py: { xs: 1, md: 5 }, overflow: "hidden", background:`url(${img1}) no-repeat right center `,backgroundSize: { xs: "60%", md: "45%", lg: "28%" },
-  backgroundPosition: {
-    xs: "center center",
-    sm: "right center",
-    md:'calc(100% - 100px) center',
-  },}}
+      sx={{ 
+        px: { xs: 2, sm: 4, md: 6, lg: 12 },
+        py: { xs: 2, sm: 8, md: 5, lg: 6 }, 
+        overflow: "hidden", 
+        background: `url(${img1}) no-repeat right center`,
+        backgroundSize: { 
+          xs: "70% auto", 
+          sm: "60% auto", 
+          md: "50% auto", 
+          lg: "40% auto",
+          xl: "28% auto"
+        },
+        backgroundPosition: {
+          xs: "right 10% center",
+          sm: "right 5% center",
+          md: "calc(100% - 80px) center",
+          lg: "calc(100% - 100px) center"
+        },
+        minHeight: { xs: "auto", md: "600px" }
+      }}
     >
-      <Box maxWidth="lg">
+      <Box maxWidth="lg" sx={{ width: "100%" }}>
 
         {/* FIXED RESPONSIVE LAYOUT */}
-        <Grid container spacing={4} alignItems="center" display={"flex"}>
+        <Grid container spacing={{ xs: 3, sm: 4, md: 4 }} alignItems="left">
 
           {/* RIGHT TEXT - FIRST ON MOBILE */}
           <Grid
@@ -40,7 +54,7 @@ export default function WeAre() {
             xs={12}
             md={6}
             order={{ xs: 2, md: 1 }}
-            sx={{ textAlign: { xs: "center", md: "left" } }}
+            sx={{ textAlign: { xs: "left", md: "left" } }}
           >
             <motion.div variants={itemVariant}>
               <Typography
@@ -48,12 +62,14 @@ export default function WeAre() {
                 fontWeight={700}
                 letterSpacing={2}
                 sx={{
+                  textAlign: { xs: "center", md: "left" },
                   color: "#77037B",
                   mb: 1,
+                  fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
                   '&::before': {
                     content: '""',
                     display: 'block',
-                    width: 90,
+                    width: { xs: 70, sm: 80, md: 90 },
                     height: 3,
                     background: '#F94A29',
                     mb: 1,
@@ -70,40 +86,77 @@ export default function WeAre() {
                 sx={{
                   mb: 3,
                   lineHeight: 1.2,
-                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  fontSize: { 
+                    xs: "1.2rem", 
+                    sm: "1.8rem", 
+                    md: "2.2rem", 
+                    lg: "2.0rem" 
+                  },
                   background: "linear-gradient(90deg, #0F1B2D, #153E90)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
               >
                 Always On Time And Never
-                <br /> Delay A Project
+                 Delay A Project
               </Typography>
 
               <Typography
                 sx={{
                   mt: 2,
+                
                   mb: 4,
                   color: "text.secondary",
-                  maxWidth: 500,
-                  mx: { xs: "auto", md: 0 }
+                  textAlign: { xs: "justify", md: "left" },
+                  maxWidth: 1000,
+                  mx: { xs: "auto", md: 0 },
+                  fontSize: { 
+                    xs: "0.875rem", 
+                    sm: "0.9rem", 
+                    md: "1rem" 
+                  },
+                  lineHeight: { 
+                    xs: 1.5, 
+                    md: 1.6 
+                  }
                 }}
               >
                 We take pride in being one of the most trusted and preferred painting service providers. Our team delivers top-quality finishes, professional workmanship, and hassle-free service from start to finish. With a strong focus on reliability, transparency, and customer satisfaction, we make sure your home or workspace transforms beautifully—just the way you imagined.
-
               </Typography>
             </motion.div>
 
             {/* FEATURES GRID */}
-            <Grid container spacing={3}>
+            <Grid container spacing={{ xs: 2, sm: 3 }} sx={{display:"flex",justifyContent:{ xs:"center", md:"flex-start" }}}>
               {/* 1 */}
-              <Grid item xs={12} sm={6}>
-                <motion.div variants={itemVariant}>
-                  <Box sx={{ display: "flex", gap: 2 }}>
-                    <EventIcon sx={{ fontSize: 36, color: "#ff0062" }} />
+              <Grid item xs={12} sm={6} >
+                <motion.div variants={itemVariant} >
+                  <Box sx={{ 
+                    display: "flex", 
+                    gap: { xs: 1.5, sm: 2 },
+                    alignItems: "flex-start"
+                  }}>
+                    <EventIcon sx={{ 
+                      fontSize: { xs: 30, sm: 34, md: 36 }, 
+                      color: "#ff0062",
+                      flexShrink: 0 
+                    }} />
                     <Box>
-                      <Typography fontWeight={700}>Flexible Schedule Option</Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography fontWeight={700} sx={{
+                        fontSize: { 
+                          xs: "0.9rem", 
+                          sm: "1rem", 
+                          md: "1.125rem" 
+                        }
+                      }}>
+                        Flexible Schedule Option
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{
+                        fontSize: { 
+                          xs: "0.75rem", 
+                          sm: "0.8rem", 
+                          md: "0.875rem" 
+                        }
+                      }}>
                         We bring the right people together to challenge
                       </Typography>
                     </Box>
@@ -114,11 +167,33 @@ export default function WeAre() {
               {/* 2 */}
               <Grid item xs={12} sm={6}>
                 <motion.div variants={itemVariant}>
-                  <Box sx={{ display: "flex", gap: 2 }}>
-                    <CleaningServicesIcon sx={{ fontSize: 36, color: "#ff0062" }} />
+                  <Box sx={{ 
+                    display: "flex", 
+                    gap: { xs: 1.5, sm: 2 },
+                    alignItems: "flex-start"
+                  }}>
+                    <CleaningServicesIcon sx={{ 
+                      fontSize: { xs: 30, sm: 34, md: 36 }, 
+                      color: "#ff0062",
+                      flexShrink: 0 
+                    }} />
                     <Box>
-                      <Typography fontWeight={700}>Eco Friendly and Clean</Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography fontWeight={700} sx={{
+                        fontSize: { 
+                          xs: "0.9rem", 
+                          sm: "1rem", 
+                          md: "1.125rem" 
+                        }
+                      }}>
+                        Eco Friendly and Clean
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{
+                        fontSize: { 
+                          xs: "0.75rem", 
+                          sm: "0.8rem", 
+                          md: "0.875rem" 
+                        }
+                      }}>
                         We bring the right people together to challenge
                       </Typography>
                     </Box>
@@ -129,11 +204,33 @@ export default function WeAre() {
               {/* 3 */}
               <Grid item xs={12} sm={6}>
                 <motion.div variants={itemVariant}>
-                  <Box sx={{ display: "flex", gap: 2 }}>
-                    <ColorLensIcon sx={{ fontSize: 36, color: "#ff0062" }} />
+                  <Box sx={{ 
+                    display: "flex", 
+                    gap: { xs: 1.5, sm: 2 },
+                    alignItems: "flex-start"
+                  }}>
+                    <ColorLensIcon sx={{ 
+                      fontSize: { xs: 30, sm: 34, md: 36 }, 
+                      color: "#ff0062",
+                      flexShrink: 0 
+                    }} />
                     <Box>
-                      <Typography fontWeight={700}>Free Colors Consultation</Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography fontWeight={700} sx={{
+                        fontSize: { 
+                          xs: "0.9rem", 
+                          sm: "1rem", 
+                          md: "1.125rem" 
+                        }
+                      }}>
+                        Free Colors Consultation
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{
+                        fontSize: { 
+                          xs: "0.75rem", 
+                          sm: "0.8rem", 
+                          md: "0.875rem" 
+                        }
+                      }}>
                         We bring the right people together to challenge
                       </Typography>
                     </Box>
@@ -144,11 +241,33 @@ export default function WeAre() {
               {/* 4 */}
               <Grid item xs={12} sm={6}>
                 <motion.div variants={itemVariant}>
-                  <Box sx={{ display: "flex", gap: 2 }}>
-                    <VerifiedIcon sx={{ fontSize: 36, color: "#ff0062" }} />
+                  <Box sx={{ 
+                    display: "flex", 
+                    gap: { xs: 1.5, sm: 2 },
+                    alignItems: "flex-start"
+                  }}>
+                    <VerifiedIcon sx={{ 
+                      fontSize: { xs: 30, sm: 34, md: 36 }, 
+                      color: "#ff0062",
+                      flexShrink: 0 
+                    }} />
                     <Box>
-                      <Typography fontWeight={700}>PDCA Certified</Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography fontWeight={700} sx={{
+                        fontSize: { 
+                          xs: "0.9rem", 
+                          sm: "1rem", 
+                          md: "1.125rem" 
+                        }
+                      }}>
+                        PDCA Certified
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{
+                        fontSize: { 
+                          xs: "0.75rem", 
+                          sm: "0.8rem", 
+                          md: "0.875rem" 
+                        }
+                      }}>
                         We bring the right people together to challenge
                       </Typography>
                     </Box>
