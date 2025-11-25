@@ -4,7 +4,7 @@ import ServicesCardForAll from '../components/ServicesCardForAll'
 const Services = () => {
   return (
     <div>
-        <ServicesCardForAll/>
+      <ServicesCardForAll />
     </div>
   )
 }
