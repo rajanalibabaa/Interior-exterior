@@ -166,7 +166,7 @@ const navigate = useNavigate();
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 sx={{
-                  color: "rgba(255,255,255,0.85)",
+                  color: "rgba(255, 255, 255, 1)",
                   fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
                   fontWeight: 400,
                   textAlign: { xs: "center", lg: "left" },

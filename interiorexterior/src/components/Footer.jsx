@@ -40,10 +40,7 @@ export default function Footer() {
     secondary: "#FF7F50",
   };
 
-  const handleNavigate = (path) => {
-    navigate(path);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+ 
 
   return (
     <>
@@ -160,7 +157,7 @@ export default function Footer() {
                     mb: 2,
                     color: "#c7c7c7",
                     textDecoration: "none",
-                    "&:hover": { color: "#FFD700", transform: "translateX(5px)" },
+                    "&:hover": { color: "#ff0062", transform: "translateX(5px)" },
                     transition: "all 0.3s ease",
                     fontSize: { xs: "0.9rem", sm: "1rem" }
                   }}
