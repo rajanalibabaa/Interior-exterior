@@ -104,17 +104,19 @@ const HowItWorks = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <Box
-                  sx={{
-                    background: "#FAF7F0",
-                    p: 4,
-                    borderRadius: 2,
-                    height: "100%",
-                    maxWidth:350,
-                    position: "relative",
-                    textAlign: "center",
-                  }}
-                >
+               <Box
+  sx={{
+    background: "#FAF7F0",
+    p: 4,
+    mb: index === 2 ? 4 : { xs: 3, sm: 3 }, 
+    borderRadius: 2,
+    height: "100%",
+    maxWidth: 350,
+    position: "relative",
+    textAlign: "center",
+  }}
+>
+
                   {/* Step Label */}
                   <Box
                     sx={{
@@ -124,6 +126,7 @@ const HowItWorks = () => {
                       background: "#ff0062",
                       color: "#fff",
                       px: 2,
+                      
                       py: 0.5,
                       fontSize: 12,
                       fontWeight: 600,

@@ -10,30 +10,14 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import KeyboardDoubleArrowUp from "@mui/icons-material/KeyboardDoubleArrowUp";
-import KeyboardDoubleArrowDown from "@mui/icons-material/KeyboardDoubleArrowDown";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 export default function Footer() {
+  
   const navigate = useNavigate();
 
-  const [scrollDirection, setScrollDirection] = useState("up");
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollDirection(window.scrollY > 200 ? "up" : "down");
-    };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+ 
 
-  const handleScrollClick = () => {
-    if (scrollDirection === "up") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    }
-  };
+
 
   const colors = {
     primary: "#F43838",
@@ -49,7 +33,7 @@ export default function Footer() {
           background: "linear-gradient(135deg, #0F1B2D 0%, #1a2d3e 100%)",
           color: "#fff",
           pt: { xs: 6, sm: 8 },
-          pb: { xs: 3, sm: 4 },
+          pb: { xs: 10, sm: 12, md: 4 },
           mt: 6,
         }}
       >
@@ -248,59 +232,7 @@ export default function Footer() {
         </Container>
       </Box>
 
-      {/* WhatsApp Button */}
-      <IconButton
-        href="https://wa.me/+1234567890"
-        target="_blank"
-        sx={{
-          position: "fixed",
-          bottom: { xs: 200, sm: 150, md: 200 },
-          right: { xs: 14, sm: 20, md: 25 },
-          width: { xs: 50, sm: 55, md: 60 },
-          height: { xs: 50, sm: 55, md: 60 },
-          background: "#25D366",
-          color: "#fff",
-          borderRadius: "50%",
-          boxShadow: "0px 4px 20px #25D36688",
-          zIndex: 999,
-          "&:hover": {
-            background: "#1EBE5C",
-            transform: "scale(1.1)",
-          },
-          transition: "0.3s",
-        }}
-      >
-        <WhatsAppIcon sx={{ fontSize: { xs: 26, sm: 28, md: 32 } }} />
-      </IconButton>
-
-      {/* Scroll To Top FAB */}
-      <Fab
-        onClick={handleScrollClick}
-        size="medium"
-        aria-label="Scroll button"
-        sx={{
-          position: "fixed",
-          bottom: { xs: 60, sm: 20, md: 25 },
-          right: { xs: 15, sm: 20, md: 25 },
-          background: `#ff0062`,
-          color: "#fff",
-          boxShadow: `0 4px 25px ${colors.primary}55`,
-          "&:hover": {
-            transform: "translateY(-4px)",
-            background: `linear-gradient(135deg, ${colors.secondary}, ${colors.primary})`,
-          },
-          transition: "all 0.3s ease",
-          zIndex: 999,
-          width: { xs: 44, sm: 48, md: 52 },
-          height: { xs: 44, sm: 48, md: 52 },
-        }}
-      >
-        {scrollDirection === "up" ? (
-          <KeyboardDoubleArrowUp sx={{ fontSize: { xs: 20, sm: 22, md: 24 } }} />
-        ) : (
-          <KeyboardDoubleArrowDown sx={{ fontSize: { xs: 20, sm: 22, md: 24 } }} />
-        )}
-      </Fab>
+     
     </>
   );
 }

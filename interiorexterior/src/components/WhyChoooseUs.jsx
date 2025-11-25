@@ -27,13 +27,13 @@ export default function WhyChooseUs() {
   return (
     <Box
       sx={{
-        py: { xs: 12, md: 3 },
-        px: { xs: 2, md: 6 },
-        maxWidth: "1400px",
+        py: { xs: 5, sm: 7, md: 4, lg: 1 },
+px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
+        maxWidth: "1440px",
         mx: "auto",
       }}
     >
-      <Grid container spacing={6} alignItems="center">
+      <Grid container spacing={{ xs: 4, sm: 5, md: 6 }} alignItems="center">
         {/* LEFT CONTENT */}
         <Grid item xs={12} md={6}>
           {/* Section Label */}
@@ -42,22 +42,26 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Typography
-              variant="h6"
-              fontWeight={700}
-              letterSpacing={2}
-              sx={{ color: "#77037B", mb: 1,
-                '&::before': {
-                  content: '""',
-                  display: 'block',
-                  width: 90,
-                  height: 3,
-                  background: '#F94A29',
-                  mb: 1
-                }
-
-               }}
-            >
+           <Typography
+                           variant="h6"
+                           fontWeight={700}
+                           letterSpacing={2}
+                           sx={{
+                             textAlign: { xs: "center", md: "left" },
+                             color: "#77037B",
+                             mb: 1,
+                             fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
+                             '&::before': {
+                               content: '""',
+                               display: 'block',
+                               width: { xs: 70, sm: 80, md: 90 },
+                               height: 3,
+                               background: '#F94A29',
+                               mb: 1,
+                               marginInline: { xs: "auto", md: 0 }
+                             }
+                           }}
+                         >
               WHY CHOOSE US
             </Typography>
           </motion.div>
@@ -69,23 +73,28 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.7 }}
           >
             <Typography
-              variant="h3"
-              fontWeight={900}
-              sx={{
-                mb: 3,
-                lineHeight: 1.2,
-                fontSize: { xs: "2rem", md: "2.5rem" },
-                background: "linear-gradient(90deg, #0F1B2D, #153E90)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
+                           variant="h3"
+                           fontWeight={900}
+                           sx={{
+                             mb: 3,
+                             lineHeight: 1.2,
+                             fontSize: { 
+                               xs: "1.2rem", 
+                               sm: "1.8rem", 
+                               md: "2.2rem", 
+                               lg: "2.0rem" 
+                             },
+                             background: "linear-gradient(90deg, #0F1B2D, #153E90)",
+                             WebkitBackgroundClip: "text",
+                             WebkitTextFillColor: "transparent",
+                           }}
+                         >
               We Deliver Trusted Residential & Commercial Painting Services
             </Typography>
           </motion.div>
 
           {/* Feature Items */}
-          <Box sx={{ mt: 3 }}>
+          <Box sx={{ mt: { xs: 2, sm: 3 } }}>
             {features.map((item, index) => (
               <motion.div
                 key={index}
@@ -96,21 +105,20 @@ export default function WhyChooseUs() {
                 <Box
                   sx={{
                     display: "flex",
-                    mb: 4,
+                    mb: { xs: 3, sm: 3.5, md: 4 },
                     alignItems: "flex-start",
                   }}
                 >
                   <Box
                     sx={{
-                      width: 55,
-                      height: 55,
+                      width: { xs: 48, sm: 50, md: 55 },
+                      height: { xs: 48, sm: 50, md: 55 },
                       bgcolor: "#AB46D2",
-                      borderRadius: "14px",
+                      borderRadius: { xs: "12px", md: "14px" },
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                    //   boxShadow: "0 10px 25px rgba(21,62,144,0.3)",
-                      mr: 2.5,
+                      mr: { xs: 2, sm: 2.5 },
                       flexShrink: 0,
                     }}
                   >
@@ -121,11 +129,30 @@ export default function WhyChooseUs() {
                     <Typography
                       variant="h6"
                       fontWeight={700}
-                      sx={{ mb: 0.8 }}
+                      sx={{ 
+                        mb: { xs: 0.5, sm: 0.8 },
+                        fontSize: { 
+                          xs: "1rem", 
+                          sm: "1.1rem", 
+                          md: "1.125rem" 
+                        },
+                        lineHeight: 1.3
+                      }}
                     >
                       {item.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ color: "#555" }}>
+                    <Typography 
+                      variant="body1" 
+                      sx={{ 
+                        color: "#555",
+                        fontSize: { 
+                          xs: "0.875rem", 
+                          sm: "0.9rem", 
+                          md: "1rem" 
+                        },
+                        lineHeight: 1.6
+                      }}
+                    >
                       {item.desc}
                     </Typography>
                   </Box>
@@ -135,32 +162,40 @@ export default function WhyChooseUs() {
           </Box>
 
           {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Button
-              variant="contained"
-              sx={{
-                mt: 2,
-                px: 4,
-                py: 1.5,
-                background: '#ff0062ff',
-                color: "#ffffffff",
-                fontWeight: 800,
-                fontSize: "16px",
-                borderRadius: 2,    
-                textTransform: "none",
-                // boxShadow: "0 15px 35px rgba(0,208,142,0.3)",
-                "&:hover": {
-                  background: "#ff0062e7",
-                },
-              }}
-            >
-              Get a Free Estimate
-            </Button>
-          </motion.div>
+         <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+>
+  <Box
+    sx={{
+      textAlign: { xs: "center", sm: "left" },  // CENTER on XS
+      width: "100%",
+    }}
+  >
+    <Button
+      variant="contained"
+      sx={{
+        mt: { xs: 1, sm: 2 },
+        px: { xs: 3, sm: 4 },
+        py: { xs: 1.2, sm: 1.5 },
+        background: "#ff0062ff",
+        color: "#ffffffff",
+        fontWeight: 800,
+        fontSize: { xs: "14px", sm: "15px", md: "16px" },
+        borderRadius: 2,
+        textTransform: "none",
+        minWidth: { xs: "200px", sm: "auto" },
+        "&:hover": {
+          background: "#ff0062e7",
+        },
+      }}
+    >
+      Get a Free Estimate
+    </Button>
+  </Box>
+</motion.div>
+
         </Grid>
 
      

@@ -51,7 +51,7 @@ const imageVariant = {
   },
 };
 
-// Reusable Card Component
+
 const ServiceCard = ({ icon, title, text, highlighted = false, index }) => (
   <motion.div
     variants={itemVariant}
@@ -64,6 +64,7 @@ const ServiceCard = ({ icon, title, text, highlighted = false, index }) => (
       elevation={0}
       sx={{
         borderRadius: 4,
+        width: { xs: "100%", sm: 320, md: 320, lg: 380 },
         maxWidth: 400,
         maxHeight: 250,
         px: 3,
@@ -189,11 +190,12 @@ export default function ServicesSection() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       sx={{
-        px: { xs: 2, md: 10 },
-        py: { xs: 4, md: 12 },
-        // background: "linear-gradient(135deg, #fff9f5 0%, #fffdf9 50%, #f8f5ff 100%)",
+        py: { xs: 1, sm: 3, md: 5, lg: 10 },
+        px: { xs: 2, sm: 3, md: 6, lg: 5, xl: 1 },
         overflow: "hidden",
         position: "relative",
+        maxWidth: "1400px",
+        margin: "0 auto",
       }}
     >
       {/* Background Elements */}
@@ -237,34 +239,6 @@ export default function ServicesSection() {
                   <img src={img2} alt="img"  style={{ width: "100vh", height: "100vh", objectFit: "contain" }} />
                 </Box>
 
-                {/* <Box
-                  component={motion.div}
-                  animate={{
-                    y: [0, 10, 0],
-                    // rotate: [0, -5, 0],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "circIn",
-                    delay: 0.3,
-                  }}
-                  sx={{
-                    position: "absolute",
-                    bottom: 230,
-                    left: 200,
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg, #80deea 0%, #26c6da 100%)",
-                    display: { xs: "none", md: "flex" },
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "0 10px 25px rgba(38, 198, 218, 0.3)",
-                  }}
-                >
-                    <img src={img3} alt="img"  style={{  width: "100vh", height: "100vh", objectFit: "contain" }} />
-                </Box> */}
       <Box
         sx={{
           position: "absolute",
@@ -283,35 +257,43 @@ export default function ServicesSection() {
         <Box 
           component={motion.div}
           variants={itemVariant}
-          sx={{  mb: { xs: 6, md: 10 } }}
+          sx={{ mb: { xs: 6, md: 10 } }}
         >
-           <Typography
-                        variant="h6"
-                        fontWeight={700}
-                        letterSpacing={2}
-                        sx={{ color: "#77037B", mb: 1,
-                          '&::before': {
-                            content: '""',
-                            display: 'block',
-                            width: 90,
-                            height: 3,
-                            background: '#F94A29',
-                            mb: 1
-                          }
-          
-                         }}
-                      >
-                        Our Services
-                      </Typography>
           <Typography
-            variant="h2"
+            variant="h6"
+            fontWeight={700}
+            letterSpacing={2}
             sx={{
-              fontWeight: 800,
-              letterSpacing: -0.5,
-              mb: 2,
-              fontSize: { xs: 32, md: 48 },
-              background: "linear-gradient(135deg, #2d3748 0%, #4a5568 100%)",
-              backgroundClip: "text",
+              textAlign: { xs: "center", md: "left" },
+              color: "#77037B",
+              mb: 1,
+              fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
+              '&::before': {
+                content: '""',
+                display: 'block',
+                width: { xs: 70, sm: 80, md: 90 },
+                height: 3,
+                background: '#F94A29',
+                mb: 1,
+                marginInline: { xs: "auto", md: 0 }
+              }
+            }}
+          >
+            Our Services
+          </Typography>
+          <Typography
+            variant="h3"
+            fontWeight={900}
+            sx={{
+              mb: 3,
+              lineHeight: 1.2,
+              fontSize: { 
+                xs: "1.2rem", 
+                sm: "1.8rem", 
+                md: "2.2rem", 
+                lg: "2.0rem" 
+              },
+              background: "linear-gradient(90deg, #0F1B2D, #153E90)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -324,6 +306,7 @@ export default function ServicesSection() {
               color: '#555',
               fontSize: { xs: 15, md: 18 },
               lineHeight: 1.7,
+              textAlign: "justify"
             }}
           >
             Our experienced team brings creativity and precision to every project, 
@@ -331,10 +314,23 @@ export default function ServicesSection() {
           </Typography>
         </Box>
 
-        {/* Modern Service Layout */}
-        <Grid container spacing={2} display={"flex"}  justifyContent={'space-evenly'} >
+        {/* Modern Service Layout - Fixed spacing for single row on xl */}
+        <Grid 
+          container 
+          spacing={{ xs: 2, sm: 2, md: 3 }}
+          justifyContent={{ xs: "space-around", sm: "space-between", md: "space-between" }}
+          alignItems="center" // Center the 3 columns vertically at sm/md/xl
+          sx={{ flexWrap: { xs: "wrap", sm: "nowrap" } }} // prevent wrap on sm and above so fold devices render in a row
+        >
           {/* Left Services Column */}
-          <Grid item xs={12} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={3}
+            xl={3}
+            sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: { xs: "stretch", sm: "center" } }}
+          >
             <motion.div variants={containerVariant}>
               <ServiceCard
                 icon={<HomeIcon />}
@@ -343,7 +339,7 @@ export default function ServicesSection() {
                 highlighted={true}
                 index={1}
               />
-              <Box sx={{ mt: 4 }} />
+              <Box sx={{ mt: { xs: 4, xl: 3 } }} />
               <ServiceCard
                 icon={<WallpaperIcon />}
                 title="Wallpaper & Finishes"
@@ -354,7 +350,7 @@ export default function ServicesSection() {
           </Grid>
 
           {/* Central Image Section */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={4} md={6} xl={6}>
             <Box
               sx={{
                 display: "flex",
@@ -365,17 +361,13 @@ export default function ServicesSection() {
               }}
             >
               <motion.div variants={imageVariant}>
-                {/* Main Circle Container */}
                 <Box
                   sx={{
-                    width: isSm ? 340 : 480,
-                    height: isSm ? 470 : 750,
-                    // borderRadius: "50%",
+                    width: "100%",
+                    maxWidth: { xs: 220, sm: 260, md: 480 },
+                    height: { xs: 200, sm: 320, md: 520 },
                     overflow: "hidden",
-                    // boxShadow: "0 25px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.8)",
-                    // background: "linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%)",
                     position: "relative",
-                    // border: "8px solid white",
                   }}
                 >
                   <Box
@@ -387,31 +379,23 @@ export default function ServicesSection() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      objectPosition: "center ",
+                      objectPosition: "center",
                     }}
                   />
-                  
-                  {/* Overlay Gradient */}
-                  {/* <Box
-                    sx={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      height: "40%",
-                      background: "linear-gradient(transparent 0%, rgba(0,0,0,0.1) 100%)",
-                    }}
-                  /> */}
                 </Box>
-
-                {/* Floating Elements */}
-               
               </motion.div>
             </Box>
           </Grid>
 
           {/* Right Services Column */}
-          <Grid item xs={12} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={3}
+            xl={3}
+            sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: { xs: "stretch", sm: "center" } }}
+          >
             <motion.div variants={containerVariant}>
               <ServiceCard
                 icon={<BusinessIcon />}
@@ -419,7 +403,7 @@ export default function ServicesSection() {
                 text="Professional painting services for businesses, offices, and commercial spaces that enhance brand image."
                 index={3}
               />
-              <Box sx={{ mt: 4 }} />
+              <Box sx={{ mt: { xs: 4, xl: 3 } }} />
               <ServiceCard
                 icon={<BrushIcon />}
                 title="Restoration & Repair"
@@ -434,7 +418,7 @@ export default function ServicesSection() {
         <Box
           component={motion.div}
           variants={itemVariant}
-          sx={{ textAlign: "center", mt: 8 }}
+          sx={{ textAlign: "center", mt: 2 }}
         >
           <Button
             variant="contained"

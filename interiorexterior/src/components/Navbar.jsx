@@ -71,19 +71,20 @@ export default function Navigation() {
   };
 
   // Mobile bottom navigation handler
-  const handleBottomNavChange = (event, newValue) => {
-    setBottomNavValue(newValue);
+const handleBottomNavChange = (event, newValue) => {
+  setBottomNavValue(newValue);
 
-    // Special handling for Services - open drawer instead of navigating
-    if (navigationItems[newValue].label === "Services") {
-      setServicesDrawerOpen(true);
-      return;
-    }
+  const selectedItem = navigationItems[newValue];
 
-    // Handle navigation for other items
-    console.log("Navigating to:", navigationItems[newValue].label);
-    // Add your routing logic here (React Router, etc.)
-  };
+  if (selectedItem.label === "Services") {
+    setServicesDrawerOpen(true);
+    return;
+  }
+
+  navigate(selectedItem.path);
+};
+
+
 
   // Handle Services click on desktop
   const handleServicesClick = (event) => {
@@ -117,23 +118,21 @@ export default function Navigation() {
         )}
 
         {/* Logo */}
-        <img 
-          src={logo}
-          alt="Brand"
-          style={{
-            height: isMobile ? 50 : 70,
-            cursor: "pointer",
-          }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          onClick={() => console.log("Navigate to home")} // Add navigation
-        />
+        <img
+  src={logo}
+  alt="Brand"
+  style={{ height: isMobile ? 50 : 70, cursor: "pointer" }}
+  onClick={() => navigate("/")} 
+/>
+
           
 
         {/* CTA Button */}
         <Button
           variant="contained"
+          onClick={()=> navigate("/contact")}
           sx={{
+
             background: "#FF0060",
             borderRadius: 30,
             padding: "8px 20px",

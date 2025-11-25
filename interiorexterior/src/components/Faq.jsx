@@ -45,7 +45,7 @@ const FAQSection = () => {
   };
 
   return (
-    <Box sx={{ background: "#F7F7F7", py: 8 }}>
+    <Box sx={{ background: "#F7F7F7", py: 2 }}>
       <Container maxWidth="md">
         {/* Title */}
         <Typography
