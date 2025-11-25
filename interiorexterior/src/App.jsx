@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
+import  WhatsAppIcon  from "@mui/icons-material/WhatsApp";
 import Footer from './components/Footer';
 import About from './pages/About';
 // import InteriorExteriorContent from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import ScrollToTop from "./Components/ScroolTop";
 // MUI Theme
 const theme = createTheme({
   palette: {
