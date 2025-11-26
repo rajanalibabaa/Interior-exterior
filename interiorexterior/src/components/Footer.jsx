@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { 
-  Box, Container, Grid, Typography, Link, Divider, IconButton, Fab 
+  Box, Container, Grid, Typography, Link, Divider, IconButton 
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -12,19 +12,34 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
-  
   const navigate = useNavigate();
 
- 
-
-
-
-  const colors = {
-    primary: "#F43838",
-    secondary: "#FF7F50",
+  const linkStyle = {
+    display: "block",
+    mb: 2,
+    color: "#c7c7c7",
+    textDecoration: "none",
+    "&:hover": { color: "#ff0062", transform: "translateX(5px)" },
+    transition: "all 0.3s ease",
+    fontSize: { xs: "0.9rem", sm: "1rem" }
   };
 
- 
+  const quickLinks = [
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Services", href: "/services/interiordesign" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Contact Us", href: "/contact" },
+  ];
+
+  const services = [
+  { label: "Interior Design", href: "/services/interiordesign" },
+  { label: "Exterior Design", href: "/services/exteriordesign" },
+  { label: "Waterproofing", href: "/services/waterproofing" },
+  { label: "Wood Polishing", href: "/services/woodprofiling" },
+  { label: "Commercial Painting", href: "/services/commercialpainting" },
+];
+
 
   return (
     <>
@@ -43,6 +58,7 @@ export default function Footer() {
             spacing={{ xs: 4, md: 8 }} 
             justifyContent="space-between"
           >
+
             {/* Left Section */}
             <Grid item xs={12} md={4}>
               <Typography 
@@ -69,7 +85,7 @@ export default function Footer() {
                 services with quality and on-time delivery.
               </Typography>
 
-              {/* Contact */}
+              {/* Contact Info */}
               <Box sx={{ mb: 3 }}>
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                   <PhoneIcon sx={{ fontSize: 18, mr: 1, color: "#ff0062" }} />
@@ -95,7 +111,7 @@ export default function Footer() {
 
               {/* Social Icons */}
               <Box sx={{ display: "flex", gap: 2, mt: 3 }}>
-                {[
+                {[ 
                   { icon: <FacebookIcon />, link: "#" },
                   { icon: <InstagramIcon />, link: "#" },
                   { icon: <TwitterIcon />, link: "#" },
@@ -118,7 +134,7 @@ export default function Footer() {
               </Box>
             </Grid>
 
-            {/* Middle Section */}
+            {/* Quick Links Section */}
             <Grid item xs={12} sm={6} md={4}>
               <Typography 
                 variant="h6" 
@@ -132,63 +148,35 @@ export default function Footer() {
                 Quick Links
               </Typography>
 
-              {["Home", "About Us", "Services", "Gallery", "Contact Us"].map((item) => (
-                <Link
-                  key={item}
-                  href="#"
-                  sx={{
-                    display: "block",
-                    mb: 2,
-                    color: "#c7c7c7",
-                    textDecoration: "none",
-                    "&:hover": { color: "#ff0062", transform: "translateX(5px)" },
-                    transition: "all 0.3s ease",
-                    fontSize: { xs: "0.9rem", sm: "1rem" }
-                  }}
-                >
-                  {item}
+              {quickLinks.map((item) => (
+                <Link key={item.label} href={item.href} sx={linkStyle}>
+                  {item.label}
                 </Link>
               ))}
+
             </Grid>
 
-            {/* Right Section */}
-            <Grid item xs={12} sm={6} md={4}>
-              <Typography 
-                variant="h6" 
-                fontWeight={700} 
-                sx={{ 
-                  mb: 3, 
-                  color: "#ff0062",
-                  fontSize: { xs: "1.1rem", sm: "1.25rem" }
-                }}
-              >
-                Our Services
-              </Typography>
+           {/* Services Section */}
+<Grid item xs={12} sm={6} md={4}>
+  <Typography 
+    variant="h6" 
+    fontWeight={700} 
+    sx={{ 
+      mb: 3, 
+      color: "#ff0062",
+      fontSize: { xs: "1.1rem", sm: "1.25rem" }
+    }}
+  >
+    Our Services
+  </Typography>
 
-              {[
-                "Interior Design",
-                "Exterior Design",
-                "Waterproofing",
-                "Wood Polishing",
-                "Commercial Painting",
-              ].map((service) => (
-                <Link
-                  key={service}
-                  href="#"
-                  sx={{
-                    display: "block",
-                    mb: 2,
-                    color: "#c7c7c7",
-                    textDecoration: "none",
-                    "&:hover": { color: "#ff0062", transform: "translateX(5px)" },
-                    transition: "all 0.3s ease",
-                    fontSize: { xs: "0.9rem", sm: "1rem" }
-                  }}
-                >
-                  {service}
-                </Link>
-              ))}
-            </Grid>
+  {services.map((item, index) => (
+    <Link key={index} href={item.href} sx={linkStyle}>
+      {item.label}
+    </Link>
+  ))}
+</Grid>
+
           </Grid>
 
           {/* Divider */}
@@ -231,8 +219,6 @@ export default function Footer() {
           </Box>
         </Container>
       </Box>
-
-     
     </>
   );
 }

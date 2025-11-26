@@ -22,7 +22,6 @@ import exterior7 from '../assets/exteriorimage7.jpg'
 import exterior8 from '../assets/exteriorimage8.jpg'
 import exterior9 from '../assets/exteriorimage9.jpg'
 import exterior10 from '../assets/exteriorimage10.jpg'
-// ✅ FIXED NAME (NOT images)
 
 import wallProffing1 from '../assets/wall_proffing1.jpg'
 import wallProffing2 from '../assets/wall_proffing2.jpg'
@@ -160,19 +159,20 @@ const InteriorExteriorGrid = ({
                         >
             {description}
           </Typography>
-
          
-   <Box
+<Box
   sx={{
-    display: "flex",
+    width: "100%",
+
+    // Mobile & small tablet: horizontal scroll
+    display: { xs: "flex", sm: "flex", md: "grid" },
+    overflowX: { xs: "auto", sm: "auto", md: "unset" },
+
+    // Desktop: 5-column grid
+    gridTemplateColumns: { md: "repeat(5, 1fr)" },
+
     gap: 2,
-    overflowX: { xs: "auto", sm: "visible" },
-    scrollBehavior: "smooth",
-    py: 1,
-    flexWrap: { xs: "nowrap", sm: "wrap" }, // No wrap on mobile, wrap on larger screens
-    "&::-webkit-scrollbar": { 
-      display: { xs: "none", sm: "none" } 
-    }, 
+    pb: { xs: 1, sm: 1, md: 0 },
   }}
 >
   {images.map((img, index) => (
@@ -181,20 +181,18 @@ const InteriorExteriorGrid = ({
       component="img"
       src={img}
       sx={{
-        // Adjust width for different screen sizes
-        width: { xs: "250px", sm: "auto" },
-        height: { xs: "200px", sm: "240px", md: "220px" },
-        flex: { xs: "0 0 auto", sm: "1 1 auto" }, // Fixed size on mobile, flexible on larger screens
-        borderRadius: "12px",
+        flexShrink: 0, 
+        width: { xs: "250px", sm: "320px", md: "100%" },
+        height: { xs: "160px", sm: "200px", md: "180px" },
         objectFit: "cover",
-        // Optional: Add max-width for larger screens to control layout
-        maxWidth: { sm: "calc(50% - 16px)", md: "calc(33.333% - 16px)" },
+        borderRadius: "12px",
+        mr: { xs: 2, sm: 2, md: 0 },
       }}
     />
   ))}
 </Box>
 
-      <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start"} }}>
+  <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start"} }}>
   <Button
     variant="contained"
     sx={{
@@ -227,33 +225,33 @@ const Gallery = () => {
     <InteriorExteriorGrid
       title="Interior Painting"
       description="Transform your living space with beautiful interior painting."
-      images={interiorImages}        // ✅ FIXED
+      images={interiorImages}        
       buttonText="Explore Interior"
     />
 
     <InteriorExteriorGrid
       title="Exterior Painting"
       description="Transform your exterior with stunning exterior painting."
-      images={exteriorImages}        // ✅ FIXED
+      images={exteriorImages}        
       buttonText="Explore Exterior"
     />
     <InteriorExteriorGrid
       title="Wall Proffing"
       description="Transform your exterior with stunning exterior painting."
-      images={wall_proffing}        // ✅ FIXED
+      images={wall_proffing}       
       buttonText="Explore Wall Proffing"
     />
     <InteriorExteriorGrid
       title="Wood Proffing"
       description="Transform your exterior with stunning exterior painting."
-      images={woodProffing}        // ✅ FIXED
+      images={woodProffing}        
       buttonText="Explore Wood Proffing"
     />
 
     <InteriorExteriorGrid
       title="Commercial Painting"
       description="Transform your exterior with stunning exterior painting."
-      images={commercialImages}        // ✅ FIXED
+      images={commercialImages}        
       buttonText="Explore Commercial Painting"
     />
     </>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography, Button, Grid } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -6,6 +7,7 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import { motion } from "framer-motion";
 
 export default function WhyChooseUs() {
+  const navigate = useNavigate();
   const features = [
     {
       icon: <StarIcon sx={{ color: "#fff", fontSize: 26 }} />,
@@ -174,6 +176,7 @@ px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
     }}
   >
     <Button
+    onClick={()=> navigate('/contact')}
       variant="contained"
       sx={{
         mt: { xs: 1, sm: 2 },
