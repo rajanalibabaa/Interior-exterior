@@ -291,6 +291,7 @@ export default function Navigation() {
         PaperProps={{
           sx: {
             width: 280,
+            height: 370,
             background: "#f21313ff",
             color: "white",
             borderTopLeftRadius: 12,
@@ -315,7 +316,7 @@ export default function Navigation() {
             </Typography>
             <IconButton
               onClick={() => setServicesDrawerOpen(false)}
-              sx={{ color: "white" }}
+              sx={{ color: "white" , }}
             >
               <Close />
             </IconButton>
@@ -337,7 +338,7 @@ export default function Navigation() {
           </List>
 
           {/* Contact Info in Drawer */}
-          <Box sx={{ mt: 4, p: 2, background: "rgba(255,255,255,0.1)", borderRadius: 2 }}>
+          {/* <Box sx={{ mt: 4, p: 2, background: "rgba(255,255,255,0.1)", borderRadius: 2 }}>
             <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 600 }}>
               Contact Us
             </Typography>
@@ -349,7 +350,7 @@ export default function Navigation() {
               <Email sx={{ fontSize: 18, color: "#E83C91" }} />
               <Typography variant="body2">info@interiorexterior.com</Typography>
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       </Drawer>
     </Box>
