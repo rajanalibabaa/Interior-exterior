@@ -1,8 +1,11 @@
 import React from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import logo from '../assets/interiorexteriorprofilelogo.jpg'
+import { useNavigate } from 'react-router-dom'
+
 
 const CenterBanner = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -67,6 +70,7 @@ const CenterBanner = () => {
         {/* BUTTON */}
         <Button
           variant="contained"
+          onClick={()=> navigate ('/contact')}
           sx={{
             mt: 1,
             px: { xs: 3, sm: 3 },

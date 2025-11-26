@@ -11,6 +11,7 @@ import {
   Button,
   Chip,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import BusinessIcon from "@mui/icons-material/Business";
 import WallpaperIcon from "@mui/icons-material/Wallpaper";
@@ -180,6 +181,7 @@ const ServiceCard = ({ icon, title, text, highlighted = false, index }) => (
 );
 
 export default function ServicesSection() {
+  const navigate = useNavigate();
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -422,6 +424,7 @@ export default function ServicesSection() {
         >
           <Button
             variant="contained"
+            onClick={()=> navigate('/services/interiordesign')}
             size="large"
             endIcon={<ArrowForwardIcon />}
             sx={{
