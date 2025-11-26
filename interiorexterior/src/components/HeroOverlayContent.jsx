@@ -83,7 +83,7 @@ const ProfessionalHeroBanner = () => {
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', lg: '1.2fr 0.8fr' },
             gap: { xs: 3, md: 6 },
-            alignItems: 'center'
+         
           }}
         >
           {/* Left Content */}

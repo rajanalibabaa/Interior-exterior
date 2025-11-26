@@ -36,7 +36,7 @@ export default function Footer() {
   { label: "Interior Design", href: "/services/interiordesign" },
   { label: "Exterior Design", href: "/services/exteriordesign" },
   { label: "Waterproofing", href: "/services/waterproofing" },
-  { label: "Wood Polishing", href: "/services/woodprofiling" },
+  { label: "Wood Polishing", href: "/services/woodpolishing" },
   { label: "Commercial Painting", href: "/services/commercialpainting" },
 ];
 

@@ -16,6 +16,7 @@ import Contact from './pages/Contact';
 import ServiceDetail from './components/ServicesCardForAll';
 import EnquiryForm from './components/EnquiryForm'; // Import form
 import { useState, useEffect } from 'react';
+import ScrollToTop from './components/ScrollToTop';
 
 const theme = createTheme({
   typography: { fontFamily: ["Poppins", "Roboto", "sans-serif"].join(",") },
@@ -172,6 +173,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
