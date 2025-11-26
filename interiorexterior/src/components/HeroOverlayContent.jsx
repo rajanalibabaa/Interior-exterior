@@ -161,13 +161,9 @@ const ProfessionalHeroBanner = () => {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              lg: '1.2fr 0.8fr'
-            },
-            gap: { xs: 3, md: 4, lg: 6 },
-            alignItems: 'center',
-            minHeight: { xs: 'auto', lg: '70vh' }
+            gridTemplateColumns: { xs: '1fr', lg: '1.2fr 0.8fr' },
+            gap: { xs: 3, md: 2 },
+            // alignItems: 'center'
           }}
         >
           {/* Content Section */}
@@ -224,23 +220,7 @@ const ProfessionalHeroBanner = () => {
                 </Box>
               </Typography>
 
-              {/* Subtitle */}
-              <Typography
-                component={motion.p}
-                variant="h6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                sx={{
-                  color: "rgba(255, 255, 255, 1)",
-                  fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  fontWeight: 400,
-                  textAlign: { xs: "center", lg: "left" },
-                  mb: 3,
-                  maxWidth: "600px",
-                  mx: { xs: "auto", lg: 0 }
-                }}
-              >
+              <Typography variant="h6" sx={{ color: 'white', mb: 3, maxWidth: 600,  fontSize: { xs: '1rem', md: '1.25rem' } }}>
                 Experience the top-rated professional residential and commercial painting services.
               </Typography>
 

@@ -254,6 +254,8 @@ const Gallery = () => {
       images={commercialImages}        
       buttonText="Explore Commercial Painting"
     />
+
+    
     </>
   );
 };
