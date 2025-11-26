@@ -29,7 +29,7 @@ import {
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import logo from "../assets/Interiorexterior_logo.png";
-import { useNavigate } from 'react-router-dom'
+import { href, useNavigate } from 'react-router-dom'
 
 
 const servicesItems = [
@@ -41,11 +41,11 @@ const servicesItems = [
 ];
 
 const navigationItems = [
-  { label: "Home", icon: <Home />, path: "/" },
-  { label: "About us", icon: <Info />, path: "/about" },
-  { label: "Services", icon: <DesignServices />, path: "/services" },
-  { label: "Gallery", icon: <PhotoLibrary />, path: "/gallery" },
-  { label: "Contact us", icon: <ContactPhone />, path: "/contact" },
+  { label: "Home", icon: <Home />, href: "/" },
+  { label: "About us", icon: <Info />, href: "/about" },
+  { label: "Services", icon: <DesignServices />, href: "/services" },
+  { label: "Gallery", icon: <PhotoLibrary />, href: "/gallery" },
+  { label: "Contact us", icon: <ContactPhone />, href: "/contact" },
 ];
 
 export default function Navigation() {
@@ -71,18 +71,19 @@ export default function Navigation() {
   };
 
   // Mobile bottom navigation handler
-  const handleBottomNavChange = (event, newValue) => {
-    setBottomNavValue(newValue);
+ const handleBottomNavChange = (event, newValue) => {
+  setBottomNavValue(newValue);
 
-    const selectedItem = navigationItems[newValue];
+  const selectedItem = navigationItems[newValue];
 
-    if (selectedItem.label === "Services") {
-      setServicesDrawerOpen(true);
-      return;
-    }
+  if (selectedItem.label === "Services") {
+    setServicesDrawerOpen(true);
+    return;
+  }
 
-    navigate(selectedItem.path);
-  };
+  navigate(selectedItem.href); // FIXED
+};
+
 
 
 
@@ -187,7 +188,7 @@ export default function Navigation() {
             ) : (
               <Typography
                 key={item.label}
-                onClick={() => navigate(item.path)}
+onClick={() => navigate(item.href)}
                 sx={{
                   cursor: "pointer",
                   padding: "16px 0",

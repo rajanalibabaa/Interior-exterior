@@ -13,6 +13,7 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import ServiceDetail from './components/ServicesCardForAll';
 import { useState, useEffect } from 'react';
+import ScrollToTop from './components/ScrollToTop';
 
 // MUI Theme
 const theme = createTheme({
@@ -133,6 +134,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
