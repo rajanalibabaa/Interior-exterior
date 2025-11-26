@@ -4,8 +4,8 @@ import ExteriorHeadingImg from '../assets/exteriorimage1.jpg'
 import ExteriorBottomImg from '../assets/exteriorimage2.jpg'
 import WallProffingHeadingImg from '../assets/wall_proffing1.jpg'
 import WallProffingBottomImg from '../assets/wall_proffing1.jpg'
-import WoodProffingHeadingImg from '../assets/woodProffing1.jpg'
-import woodProffingBottomImg from '../assets/woodProffing2.jpg'
+import WoodPolishingHeadingImg from '../assets/woodProffing1.jpg'
+import WoodPolishingBottomImg from '../assets/woodProffing2.jpg'
 import CommercialHeadingImg from '../assets/wall_proffing7.jpg'
 import CommercialBottomImg from '../assets/wall_proffing8.jpg'
 
@@ -67,12 +67,12 @@ const servicesData = {
         bottomImg: WallProffingBottomImg,
     },
 
-    woodprofiling: {
-        headingImg: WoodProffingHeadingImg,
-        heading: "Wood Profiling – Full Professional Content",
+    woodpolishing: {
+        headingImg: WoodPolishingHeadingImg,
+        heading: "Wood Polishing – Full Professional Content",
         description: "Bring Warmth and Elegance to Your Interiors",
-        headPara: "Wood adds a charm that no other material can match. Our wood profiling services are crafted to enhance your interiors with detail, creativity, and fine craftsmanship. From classic to contemporary styles, we design wooden features that elevate your space beautifully.",
-        ourApproach: "Our Wood Profiling Services",
+        headPara: "Wood adds a charm that no other material can match. Our wood polishing services are crafted to enhance your interiors with detail, creativity, and fine craftsmanship. From classic to contemporary styles, we design wooden features that elevate your space beautifully.",
+        ourApproach: "Our Wood Polishing Services",
         ourApproachPara: "We combine traditional craftsmanship with modern design to create stunning wooden elements tailored to your taste.",
         whatWeOffer: [
             'Designer wall paneling',
@@ -83,7 +83,7 @@ const servicesData = {
         ],
         standOut: "Why Our Work Stands Out",
         standOutPara: "We combine craftsmanship with premium materials to create pieces that are both durable and visually stunning. Every design is handcrafted with precision to add warmth, luxury, and character to your home or commercial space.",
-        bottomImg: woodProffingBottomImg,
+        bottomImg: WoodPolishingBottomImg,
     },
 
     commercialpainting: {

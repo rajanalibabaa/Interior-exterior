@@ -32,13 +32,13 @@ import logo from "../assets/Interiorexterior_logo.png";
 import { useNavigate } from 'react-router-dom'
 
 
-  const servicesItems = [
-    "Interior Design",
-    "Exterior Design",
-    "Waterproofing",
-    "Wood Polishing",
-    "Commercial Painting",  
-  ];
+const servicesItems = [
+  "Interior Design",
+  "Exterior Design",
+  "Waterproofing",
+  "Wood Polishing",
+  "Commercial Painting",
+];
 
 const navigationItems = [
   { label: "Home", icon: <Home />, path: "/" },
@@ -71,18 +71,18 @@ export default function Navigation() {
   };
 
   // Mobile bottom navigation handler
-const handleBottomNavChange = (event, newValue) => {
-  setBottomNavValue(newValue);
+  const handleBottomNavChange = (event, newValue) => {
+    setBottomNavValue(newValue);
 
-  const selectedItem = navigationItems[newValue];
+    const selectedItem = navigationItems[newValue];
 
-  if (selectedItem.label === "Services") {
-    setServicesDrawerOpen(true);
-    return;
-  }
+    if (selectedItem.label === "Services") {
+      setServicesDrawerOpen(true);
+      return;
+    }
 
-  navigate(selectedItem.path);
-};
+    navigate(selectedItem.path);
+  };
 
 
 
@@ -119,18 +119,18 @@ const handleBottomNavChange = (event, newValue) => {
 
         {/* Logo */}
         <img
-  src={logo}
-  alt="Brand"
-  style={{ height: isMobile ? 50 : 70, cursor: "pointer" }}
-  onClick={() => navigate("/")} 
-/>
+          src={logo}
+          alt="Brand"
+          style={{ height: isMobile ? 50 : 70, cursor: "pointer" }}
+          onClick={() => navigate("/")}
+        />
 
-          
+
 
         {/* CTA Button */}
         <Button
           variant="contained"
-          onClick={()=> navigate("/contact")}
+          onClick={() => navigate("/contact")}
           sx={{
 
             background: "#FF0060",
@@ -291,6 +291,7 @@ const handleBottomNavChange = (event, newValue) => {
         PaperProps={{
           sx: {
             width: 280,
+            height: 370,
             background: "#f21313ff",
             color: "white",
             borderTopLeftRadius: 12,
@@ -315,7 +316,7 @@ const handleBottomNavChange = (event, newValue) => {
             </Typography>
             <IconButton
               onClick={() => setServicesDrawerOpen(false)}
-              sx={{ color: "white" }}
+              sx={{ color: "white" , }}
             >
               <Close />
             </IconButton>
@@ -337,7 +338,7 @@ const handleBottomNavChange = (event, newValue) => {
           </List>
 
           {/* Contact Info in Drawer */}
-          <Box sx={{ mt: 4, p: 2, background: "rgba(255,255,255,0.1)", borderRadius: 2 }}>
+          {/* <Box sx={{ mt: 4, p: 2, background: "rgba(255,255,255,0.1)", borderRadius: 2 }}>
             <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 600 }}>
               Contact Us
             </Typography>
@@ -349,7 +350,7 @@ const handleBottomNavChange = (event, newValue) => {
               <Email sx={{ fontSize: 18, color: "#E83C91" }} />
               <Typography variant="body2">info@interiorexterior.com</Typography>
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       </Drawer>
     </Box>

@@ -1,130 +1,169 @@
-import './App.css'
+import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Fab } from "@mui/material";
+import { ThemeProvider, createTheme, Fab, Box, Dialog, IconButton, Typography } from "@mui/material";
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import MessageIcon from '@mui/icons-material/Message';
+import CloseIcon from '@mui/icons-material/Close';
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
-import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import KeyboardDoubleDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import Footer from './components/Footer';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import ServiceDetail from './components/ServicesCardForAll';
+import EnquiryForm from './components/EnquiryForm'; // Import form
 import { useState, useEffect } from 'react';
 
-// MUI Theme
 const theme = createTheme({
-  palette: {
-    text: { primary: "#333333" },
-  },
-  typography: {
-    fontFamily: ["Poppins", "Roboto", "sans-serif"].join(","),
-  },
+  typography: { fontFamily: ["Poppins", "Roboto", "sans-serif"].join(",") },
 });
 
-const colors = {
-  primary: "#F43838",
-  secondary: "#FF7F50",
-};
-
-// WhatsApp Component
+// WhatsApp Button
 const WhatsAppButton = () => {
-  const mobileNumber = "917350000000"; 
-  
-  const handleWhatsAppClick = () => {
-    const whatsappUrl = `https://wa.me/${mobileNumber}`;
-    window.open(whatsappUrl, '_blank');
-  };
+  const handleClick = () => window.open("https://wa.me/917350000000", "_blank");
 
   return (
-   <Fab
-  onClick={handleWhatsAppClick}
-  sx={{
-    position: "fixed",
-    bottom: { xs: 270, sm: 470, md: 370, lg: 270 },   
-    right:  { xs: 15, sm: 20, md: 25 },             
-    backgroundColor: "#25D366",
-    color: "#fff",
-
-    width:  { xs: 50, sm: 55, md: 55, lg: 60 },      
-    height: { xs: 50, sm: 55, md: 55, lg: 60 },      
-
-    zIndex: 9999,
-    "&:hover": {
-      backgroundColor: "#1ebe5d",
-      transform: "scale(1.1)",
-    },
-    transition: "all 0.3s ease",
-  }}
-  aria-label="Contact via WhatsApp"
->
-  <WhatsAppIcon sx={{ fontSize: { xs: 24, sm: 26, md: 30, lg: 32 } }} />
-</Fab>
-
+    <Fab
+      onClick={handleClick}
+      sx={{
+        position: "fixed",
+        bottom: { xs: 140, sm: 100, md: 80, lg: 90 },
+        right: { xs: 16, md: 30 },
+        bgcolor: "#25D366",
+        color: "white",
+        width: { xs: 56, md: 64 },
+        height: { xs: 56, md: 64 },
+        zIndex: 9999,
+        "&:hover": { bgcolor: "#1ebe5d", transform: "scale(1.1)" },
+      }}
+    >
+      <WhatsAppIcon sx={{ fontSize: { xs: 30, md: 36 } }} />
+    </Fab>
   );
 };
 
-// Smart Scroll Component (Up/Down)
+// Global Enquiry Floating Button + Dialog
+const GlobalEnquiryButton = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      {/* Floating Button */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        style={{ position: 'fixed', bottom: 210, right: 16, zIndex: 9999 }}
+      >
+        <Fab
+          onClick={() => setOpen(true)}
+          sx={{
+            width: 56,
+            height: 56,
+            background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+            boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
+            '&:hover': {
+              background: 'linear-gradient(135deg, #128C7E 0%, #0C6B5E 100%)',
+              boxShadow: '0 6px 25px rgba(37, 211, 102, 0.6)',
+            },
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              inset: -4,
+              background: 'linear-gradient(135deg, #25D366, #128C7E)',
+              borderRadius: '50%',
+              zIndex: -1,
+              animation: 'pulse 2s infinite',
+            }
+          }}
+        >
+          <MessageIcon sx={{ fontSize: 32, color: 'white' }} />
+          <Box sx={{
+            position: 'absolute',
+            top: 8, right: 8,
+            width: 14, height: 14,
+            // bgcolor: '#FF4081',
+            borderRadius: '50%',
+            // border: '3px solid white',
+            animation: 'pulse 1.5s infinite'
+          }} />
+        </Fab>
+      </motion.div>
+
+      {/* Dialog Form */}
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        fullWidth
+        maxWidth="sm"
+        PaperProps={{ sx: { borderRadius: 3, m: 2, overflow: 'hidden' } }}
+      >
+        <Box sx={{ bgcolor: 'linear-gradient(135deg, #AB46D2 0%, #7B1FA2 100%)', color: 'white', p: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <Typography variant="h6" fontWeight="bold">Get Free Quote</Typography>
+              <Typography variant="body2" sx={{ opacity: 0.9 }}>We'll reply in minutes</Typography>
+            </div>
+            <IconButton onClick={() => setOpen(false)} sx={{ color: 'white' }}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
+        </Box>
+        <Box sx={{ p: 3, bgcolor: '#fff' }}>
+          <EnquiryForm compact={true} onClose={() => setOpen(false)} />
+        </Box>
+      </Dialog>
+
+      {/* Pulse Animation */}
+      <style jsx>{`
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.08); opacity: 0.7; }
+        }
+      `}</style>
+    </>
+  );
+};
+
+// Scroll Button (unchanged)
 const SmartScrollButton = () => {
-  const [scrollDirection, setScrollDirection] = useState("up");
+  const [dir, setDir] = useState("up");
 
- useEffect(() => {
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const fullHeight = document.documentElement.scrollHeight;
+  useEffect(() => {
+    const handle = () => {
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+      const atTop = window.scrollY < 100;
+      setDir(atBottom ? "up" : atTop ? "down" : "up");
+    };
+    window.addEventListener("scroll", handle);
+    handle();
+    return () => window.removeEventListener("scroll", handle);
+  }, []);
 
-    const isAtTop = scrollY <= 50;
-    const isAtBottom = scrollY + windowHeight >= fullHeight - 50;
-
-    if (isAtBottom) setScrollDirection("up");     
-    else if (isAtTop) setScrollDirection("down");
-    else setScrollDirection("up");                
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-
-  const handleScrollClick = () => {
-    if (scrollDirection === "up") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    }
+  const scroll = () => {
+    window.scrollTo({
+      top: dir === "up" ? 0 : document.body.scrollHeight,
+      behavior: "smooth"
+    });
   };
 
   return (
     <Fab
-      onClick={handleScrollClick}
-      size="medium"
-      aria-label="Scroll button"
+      onClick={scroll}
       sx={{
         position: "fixed",
-        bottom: { xs: 60, sm: 60, md: 25 },
-        right: { xs: 15, sm: 20, md: 25 },
-        background: `#ff0062`,
-        color: "#fff",
-        boxShadow: `0 4px 25px ${colors.primary}55`,
-        "&:hover": {
-          transform: "translateY(-4px)",
-          background: `linear-gradient(135deg, ${colors.secondary}, ${colors.primary})`,
-        },
-        transition: "all 0.3s ease",
-        zIndex: 9999,
-        width: { xs: 54, sm: 58, md: 52 },
-        height: { xs: 54, sm: 58, md: 52 },
+        bottom: { xs: 20, md: 30 },
+        right: { xs: 16, md: 30 },
+        bgcolor: "#ff0062",
+        color: "white",
+        zIndex: 9998,
+        "&:hover": { transform: "translateY(-4px)" }
       }}
     >
-      {scrollDirection === "up" ? (
-        <KeyboardDoubleArrowUpIcon sx={{ fontSize: { xs: 20, sm: 22, md: 24 } }} />
-      ) : (
-        <KeyboardDoubleArrowDownIcon sx={{ fontSize: { xs: 20, sm: 22, md: 24 } }} />
-      )}
+      {dir === "up" ? <KeyboardDoubleArrowUpIcon /> : <KeyboardDoubleDownIcon />}
     </Fab>
   );
 };
@@ -142,8 +181,9 @@ function App() {
           <Route path='/contact' element={<Contact />} />
         </Routes>
         <Footer />
-        
-        {/* Floating Buttons */}
+
+        {/* Global Floating Buttons */}
+        <GlobalEnquiryButton />   {/* New: Visible on ALL pages */}
         <WhatsAppButton />
         <SmartScrollButton />
       </Router>
