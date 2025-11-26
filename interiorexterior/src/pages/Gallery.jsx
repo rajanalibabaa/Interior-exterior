@@ -184,19 +184,15 @@ const InteriorExteriorGrid = ({
         flexShrink: 0, 
         width: { xs: "250px", sm: "320px", md: "100%" },
         height: { xs: "160px", sm: "200px", md: "180px" },
-
         objectFit: "cover",
         borderRadius: "12px",
-
         mr: { xs: 2, sm: 2, md: 0 },
       }}
     />
   ))}
 </Box>
 
-
-
-      <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start"} }}>
+  <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start"} }}>
   <Button
     variant="contained"
     sx={{
