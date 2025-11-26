@@ -160,7 +160,7 @@ const SmartScrollButton = () => {
         bgcolor: "#ff0062",
         color: "white",
         zIndex: 9998,
-        "&:hover": { transform: "translateY(-4px)" }
+        "&:hover": { transform: "translateY(-4px)" ,  bgcolor: "#ff0062" , color: "white" }
       }}
     >
       {dir === "up" ? <KeyboardDoubleArrowUpIcon /> : <KeyboardDoubleDownIcon />}
