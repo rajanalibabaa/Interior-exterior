@@ -13,7 +13,6 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import ServiceDetail from './components/ServicesCardForAll';
 import { useState, useEffect } from 'react';
-import ScrollToTop from './components/ScrollToTop';
 
 // MUI Theme
 const theme = createTheme({
@@ -44,7 +43,7 @@ const WhatsAppButton = () => {
   onClick={handleWhatsAppClick}
   sx={{
     position: "fixed",
-    bottom: { xs: 130, sm: 470, md: 370, lg: 270 },   
+    bottom: { xs: 170, sm: 470, md: 370, lg: 270 },   
     right:  { xs: 4, sm: 20, md: 25 },             
     backgroundColor: "#25D366",
     color: "#fff",
@@ -106,8 +105,8 @@ const SmartScrollButton = () => {
       aria-label="Scroll button"
       sx={{
         position: "fixed",
-        bottom: { xs: 60, sm: 60, md: 25 },
-        right: { xs: 15, sm: 20, md: 25 },
+        bottom: { xs: 90, sm: 360, md: 25 },
+        right: { xs: 5, sm: 15, md: 25 },
         background: `#ff0062`,
         color: "#fff",
         boxShadow: `0 4px 25px ${colors.primary}55`,
@@ -134,7 +133,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />

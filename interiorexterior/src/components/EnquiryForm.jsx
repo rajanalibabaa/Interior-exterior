@@ -16,17 +16,16 @@ const fadeLeft = {
 
 const HeroContainer = styled(Box)(({ theme }) => ({
   width: "100%",
-  minHeight: "100vh",
+  // minHeight: "10vh",
   
 }));
 
 const FormWrapper = styled(Box)(({ theme }) => ({
   width: "100%",
-  maxWidth: 300,
+  maxWidth: { xs: 325},
   padding: "20px 22px",
   background: "#feee91ff",
   backdropFilter: "blur(12px)",
-  borderRadius: "18px",
   boxShadow: "0 12px 30px rgba(0,0,0,0.18)",
   zIndex: 10,
 }));
@@ -59,12 +58,12 @@ const SubmitButton = styled(Button)(({ theme }) => ({
 export default function HeroBanner() {
   return (
     <HeroContainer
-      component={motion.div}
+      // component={div}
       initial="hidden"
       animate="show"
     >
       <FormWrapper
-        component={motion.form}
+        // component={div}
         variants={fadeLeft}
         action="https://your-backend-url.com/api/create-lead"
         method="POST"

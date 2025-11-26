@@ -19,7 +19,7 @@ import {
   Schedule,
   Close
 } from '@mui/icons-material';
-// import MessageIcon from '@mui/icons-material/Message';
+import MessageIcon from '@mui/icons-material/Message';
 import EnquiryForm from './EnquiryForm';
 import { useNavigate } from 'react-router-dom';
 
@@ -57,72 +57,55 @@ const FeatureChip = ({ icon, text, delay = 0 }) => (
   </motion.div>
 );
 
-// WhatsApp-style Floating Mobile Button
-// const FloatingMobileEnquiryButton = ({ onClick }) => (
-//   <motion.div
-//     initial={{ opacity: 0, scale: 0 }}
-//     animate={{ opacity: 1, scale: 1 }}
-//     transition={{ duration: 0.5, delay: 0.6 }}
-//     whileHover={{ scale: 1.1 }}
-//     whileTap={{ scale: 0.9 }}
-//     style={{
-//       position: 'fixed',
-//       bottom: 200,
-//       right: 5,
-//       zIndex:  9999,
-//     }}
-//   >
-//     <Fab
-//       color="primary"
-//       aria-label="get quote"
-//       onClick={onClick}
-//       sx={{
-//         width: 45,
-//         height: 45,
-//         background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-//         boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
-//         '&:hover': {
-//           background: 'linear-gradient(135deg, #128C7E 0%, #0C6B5E 100%)',
-//           boxShadow: '0 6px 25px rgba(37, 211, 102, 0.6)',
-//         },
-//         '&::after': {
-//           content: '""',
-//           position: 'absolute',
-//           top: -2,
-//           left: -2,
-//           right: -2,
-//           bottom: -2,
-//           background: 'linear-gradient(135deg, #25D366, #128C7E)',
-//           borderRadius: '50%',
-//           zIndex: -1,
-//           animation: 'pulse 2s infinite',
-//         }
-//       }}
-//     >
-//       <MessageIcon 
-//         sx={{ 
-//           fontSize: 28,
-//           color: 'white'
-//         }} 
-//       />
-//     </Fab>
+//  Floating Mobile Button
+const FloatingMobileEnquiryButton = ({ onClick }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay: 0.6 }}
+    whileTap={{ scale: 0.9 }}
+    style={{
+      position: 'fixed',
+      zIndex: 9999,
+    }}
+  >
+    <Fab
+      color="primary"
+      aria-label="get quote"
+      onClick={onClick}
+      sx={{
+        width: { xs: 54, sm: 58, md: 52 },
+        height: { xs: 54, sm: 58, md: 52 },
+        left: { xs: 300,sm: 685,},
+        bottom: { xs: 220, sm: 90,  },
+        background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+        boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
+      }}
+    >
+      <MessageIcon
+        sx={{
+          fontSize: 28,
+          color: 'white'
+        }}
+      />
+    </Fab>
 
-//     {/* Floating notification dot */}
-//     <Box
-//       sx={{
-//         position: 'absolute',
-//         top: 8,
-//         right: 8,
-//         width: 12,
-//         height: 12,
-//         backgroundColor: '#FF4081',
-//         borderRadius: '50%',
-//         border: '2px solid white',
-//         animation: 'pulse 1.5s infinite'
-//       }}
-//     />
-//   </motion.div>
-// );
+    {/* Floating notification dot */}
+    {/* <Box
+      sx={{
+        position: 'absolute',
+        top: 8,
+        right: 8,
+        width: 12,
+        height: 12,
+        backgroundColor: '#FF4081',
+        borderRadius: '50%',
+        border: '2px solid white',
+        animation: 'pulse 1.5s infinite'
+      }}
+    /> */}
+  </motion.div>
+);
 
 // Main Component
 const ProfessionalHeroBanner = () => {
@@ -137,7 +120,7 @@ const ProfessionalHeroBanner = () => {
 
   const features = [
     { icon: <Star />, text: 'Premium Quality' },
-    // { icon: <MessageIcon />, text: '24/7 Support' },
+    { icon: <MessageIcon />, text: '24/7 Support' },
     { icon: <LocationOn />, text: 'Local Experts' },
     { icon: <Schedule />, text: 'On-Time' },
     { icon: <Email />, text: 'Free Estimate' }
@@ -154,16 +137,22 @@ const ProfessionalHeroBanner = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: { xs: 'auto', md: '100vh' }
+        minHeight: { xs: 'auto', md: '50vh' }
       }}
     >
       <Container maxWidth="xl" sx={{ py: { xs: 2, md: 0 } }}>
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', lg: '1.2fr 0.8fr' },
-            gap: { xs: 3, md: 2 },
-            // alignItems: 'center'
+            gridTemplateColumns: {
+              xs: '1fr',
+              lg: '1.2fr 0.8fr',
+
+            },
+
+            gap: { xs: 3, md: 4, lg: 6 },
+            // alignItems: 'center',
+            minHeight: { xs: 'auto', lg: '70vh' }
           }}
         >
           {/* Content Section */}
@@ -220,7 +209,23 @@ const ProfessionalHeroBanner = () => {
                 </Box>
               </Typography>
 
-              <Typography variant="h6" sx={{ color: 'white', mb: 3, maxWidth: 600,  fontSize: { xs: '1rem', md: '1.25rem' } }}>
+              {/* Subtitle */}
+              <Typography
+                component={motion.p}
+                variant="h6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                sx={{
+                  color: "rgba(255, 255, 255, 1)",
+                  fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
+                  fontWeight: 400,
+                  textAlign: { xs: "center", lg: "left" },
+                  mb: 3,
+                  maxWidth: "600px",
+                  mx: { xs: "auto", lg: 0 }
+                }}
+              >
                 Experience the top-rated professional residential and commercial painting services.
               </Typography>
 
@@ -281,9 +286,10 @@ const ProfessionalHeroBanner = () => {
           </Box>
 
           {/* Form Section - Desktop */}
-          {/* {!isMobile && (
+          {!isMobile && (
             <Box sx={{
               mt: 0,
+              p: 0,
               ml: { lg: 4, xl: 20 }
             }}>
               <EnquiryForm
@@ -291,11 +297,58 @@ const ProfessionalHeroBanner = () => {
                 subtitle="Get started in minutes"
               />
             </Box>
-          )} */}
+          )}
         </Box>
 
         {/* Mobile Form Dialog */}
+        {isMobile && (
+          <>
+            <FloatingMobileEnquiryButton
+              onClick={() => setOpenMobileForm(true)} />
+            <Dialog
+              open={openMobileForm}
+              onClose={() => setOpenMobileForm(false)}
+              fullWidth
+              maxWidth="sm"
+
+            >
+              <IconButton
+                onClick={() => setOpenMobileForm(false)}
+                sx={{ position: 'absolute', top: 8, right: 8, zIndex: 10 }}
+              >
+                <Close color='error' />
+              </IconButton>
+              {/* Form Content */}
+
+              <EnquiryForm
+                title=""
+                subtitle=""
+                onClose={() => setOpenMobileForm(false)}
+                compact={true}
+              />
+
+            </Dialog>
+          </>
+        )}
       </Container>
+
+      {/* Add pulse animation */}
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.05);
+            opacity: 0.8;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      `}</style>
     </Box>
   );
 };
