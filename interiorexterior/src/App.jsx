@@ -30,8 +30,8 @@ const WhatsAppButton = () => {
       onClick={handleClick}
       sx={{
         position: "fixed",
-        bottom: { xs: 140, sm: 100, md: 80, lg: 90 },
-        right: { xs: 16, md: 30 },
+        bottom: { xs: 200, sm: 100, md: 80, lg: 220 },
+        right: { xs: 8, md: 30 },
         bgcolor: "#25D366",
         color: "white",
         width: { xs: 56, md: 64 },
@@ -60,31 +60,25 @@ const GlobalEnquiryButton = () => {
       >
         <Fab
           onClick={() => setOpen(true)}
+
           sx={{
-            width: 56,
-            height: 56,
+            display: { lg: 'none' },
+
+            width: { xs: 56, md: 64 },
+            height: { xs: 56, md: 64 },
+            bottom: { xs: 70, sm: 150, md: 90, lg: 150 },
+            right: { xs: -9, md: 30 },
             background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-            boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
+            // boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
             '&:hover': {
-              background: 'linear-gradient(135deg, #128C7E 0%, #0C6B5E 100%)',
-              boxShadow: '0 6px 25px rgba(37, 211, 102, 0.6)',
-            },
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              inset: -4,
-              background: 'linear-gradient(135deg, #25D366, #128C7E)',
-              borderRadius: '50%',
-              zIndex: -1,
-              animation: 'pulse 2s infinite',
+             "&:hover": { bgcolor: "#1ebe5d", transform: "scale(1.1)" },
             }
           }}
         >
           <MessageIcon sx={{ fontSize: 32, color: 'white' }} />
           <Box sx={{
             position: 'absolute',
-            top: 8, right: 8,
-            width: 14, height: 14,
+            width: 10, height: 10,
             // bgcolor: '#FF4081',
             borderRadius: '50%',
             // border: '3px solid white',
@@ -155,12 +149,12 @@ const SmartScrollButton = () => {
       onClick={scroll}
       sx={{
         position: "fixed",
-        bottom: { xs: 20, md: 30 },
-        right: { xs: 16, md: 30 },
+        bottom: { xs: 80, md: 30 },
+        right: { xs: 8, md: 30 },
         bgcolor: "#ff0062",
         color: "white",
         zIndex: 9998,
-        "&:hover": { transform: "translateY(-4px)" ,  bgcolor: "#ff0062" , color: "white" }
+        "&:hover": { transform: "translateY(-4px)", bgcolor: "#ff0062", color: "white" }
       }}
     >
       {dir === "up" ? <KeyboardDoubleArrowUpIcon /> : <KeyboardDoubleDownIcon />}
