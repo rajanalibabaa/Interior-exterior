@@ -256,6 +256,8 @@ const Gallery = () => {
       images={commercialImages}        // ✅ FIXED
       buttonText="Explore Commercial Painting"
     />
+
+    
     </>
   );
 };
