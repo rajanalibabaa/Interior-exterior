@@ -1,14 +1,14 @@
-import React from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
 import EventIcon from '@mui/icons-material/Event';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import { motion } from "framer-motion";
 import img1 from "../assets/interiorexteriorherobest.png";
-import img2 from "../assets/interiorexteriorweare1.jpg";
 
-const workerImage = img1;
 
 const itemVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -63,7 +63,7 @@ export default function WeAre() {
                 letterSpacing={2}
                 sx={{
                   textAlign: { xs: "center", md: "left" },
-                  color: "#77037B",
+                  color: "#0097b1",
                   mb: 1,
                   fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
                   '&::before': {
@@ -71,7 +71,7 @@ export default function WeAre() {
                     display: 'block',
                     width: { xs: 70, sm: 80, md: 90 },
                     height: 3,
-                    background: '#F94A29',
+                    background: '#000000ff',
                     mb: 1,
                     marginInline: { xs: "auto", md: 0 }
                   }
@@ -106,10 +106,12 @@ export default function WeAre() {
                   mt: 2,
                 
                   mb: 4,
-                  color: "text.secondary",
+                  color: "#000000ff",
                   textAlign: { xs: "justify", md: "left" },
                   maxWidth: 1000,
                   mx: { xs: "auto", md: 0 },
+                  fontWeight:{ xs: 600, md: 500 },
+                  letterSpacing: 0.5,
                   fontSize: { 
                     xs: "0.875rem", 
                     sm: "0.9rem", 
@@ -137,7 +139,7 @@ export default function WeAre() {
                   }}>
                     <EventIcon sx={{ 
                       fontSize: { xs: 30, sm: 34, md: 36 }, 
-                      color: "#ff0062",
+                      color: "#63cbe0",
                       flexShrink: 0 
                     }} />
                     <Box>
@@ -174,7 +176,7 @@ export default function WeAre() {
                   }}>
                     <CleaningServicesIcon sx={{ 
                       fontSize: { xs: 30, sm: 34, md: 36 }, 
-                      color: "#ff0062",
+                      color: "#63cbe0",
                       flexShrink: 0 
                     }} />
                     <Box>
@@ -211,7 +213,7 @@ export default function WeAre() {
                   }}>
                     <ColorLensIcon sx={{ 
                       fontSize: { xs: 30, sm: 34, md: 36 }, 
-                      color: "#ff0062",
+                      color: "#63cbe0",
                       flexShrink: 0 
                     }} />
                     <Box>
@@ -248,7 +250,7 @@ export default function WeAre() {
                   }}>
                     <VerifiedIcon sx={{ 
                       fontSize: { xs: 30, sm: 34, md: 36 }, 
-                      color: "#ff0062",
+                      color: "#63cbe0",
                       flexShrink: 0 
                     }} />
                     <Box>
@@ -285,18 +287,7 @@ export default function WeAre() {
             order={{ xs: 1, md: 2 }}
             sx={{ display: "flex", justifyContent: "center" }}
           >
-            {/* <motion.div variants={itemVariant}>
-              <Box
-                component="img"
-                src={workerImage}
-                alt="Worker"
-                sx={{
-                  width: { xs: "90%", sm: "75%", md: "100%" },
-                  maxWidth: 500,
-                  objectFit: "contain",
-                }}
-              />
-            </motion.div> */}
+           
           </Grid>
 
         </Grid>

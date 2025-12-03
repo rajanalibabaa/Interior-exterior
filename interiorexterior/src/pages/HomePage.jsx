@@ -1,29 +1,54 @@
-import React from 'react'
+import { lazy, Suspense } from 'react'
 import HeroBannerWithEnquiryForm from '../components/HeroBanner'
-import WhyChooseUs from '../components/WhyChoooseUs'
-import AutoSlideSection from '../components/AutoSlideTeraformSection'
-import ServicesSection from '../components/OurServicesSections'
 import WeAre from '../components/WeAre'
-import HowItWorks from '../components/HowItsWorks'
-import { Typography , Box, Button} from '@mui/material'
-import logo from './../assets/interiorexteriorprofilelogo.jpg'
-import CenterBanner from '../components/CenterBanner'
-import FAQSection from '../components/Faq'
+
+// Lazy load components that are below the fold
+const WhyChooseUs = lazy(() => import('../components/WhyChoooseUs'))
+const AutoSlideSection = lazy(() => import('../components/AutoSlideTeraformSection'))
+const ServicesSection = lazy(() => import('../components/OurServicesSections'))
+const HowItWorks = lazy(() => import('../components/HowItsWorks'))
+const CenterBanner = lazy(() => import('../components/CenterBanner'))
+const FAQSection = lazy(() => import('../components/Faq'))
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div className="w-full h-32 flex items-center justify-center">
+    <div className="animate-pulse text-gray-400">Loading...</div>
+  </div>
+)
 
 const HomePage = () => {
   return (
- <>
- <HeroBannerWithEnquiryForm/>
-  <WeAre/>
+    <>
+      {/* Critical above-the-fold content - loads immediately */}
+      <HeroBannerWithEnquiryForm />
+      <WeAre />
 
- <WhyChooseUs/>
- <ServicesSection/>
-  <AutoSlideSection/>
+      {/* Below-the-fold content - lazy loaded */}
+      <Suspense fallback={<SectionLoader />}>
+        <WhyChooseUs />
+      </Suspense>
 
- <CenterBanner/>
- <HowItWorks/>
- <FAQSection/>
- </>
+      <Suspense fallback={<SectionLoader />}>
+        <ServicesSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <AutoSlideSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <CenterBanner />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <HowItWorks />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <FAQSection />
+      </Suspense>
+    </>
   )
 }
 

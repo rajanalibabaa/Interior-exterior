@@ -10,9 +10,9 @@ import CommercialHeadingImg from '../assets/wall_proffing7.jpg'
 import CommercialBottomImg from '../assets/wall_proffing8.jpg'
 
 const servicesData = {
-    interiordesign: {
+    interiorpainting: {
         headingImg: InteriorHeadingImg,
-        heading: "Interior Design – Full Professional Content",
+        heading: "Interior Painting – Full Professional Content",
         description: "Create a Space That Truly Feels Like Home",
         headPara: "Your interiors should reflect your lifestyle, your personality, and the story you want your home or workspace to tell. At Interior and Exterior, our interior design services focus on creating spaces that are beautiful, functional, and thoughtfully planned.",
         ourApproach: "Our Approach",
@@ -29,9 +29,9 @@ const servicesData = {
         bottomImg: InteriorBottomImg,
     },
 
-    exteriordesign: {
+    exteriorpainting: {
         headingImg: ExteriorHeadingImg,
-        heading: "Exterior Design – Full Professional Content",
+        heading: "Exterior Painting – Full Professional Content",
         description: "Make a Lasting First Impression",
         headPara: "Your building’s exterior is the first thing people notice. A well-designed exterior not only boosts visual appeal but also enhances the overall value of your property. At Interior and Exterior, we specialize in exterior design that combines durability, elegance, and modern aesthetics.",
         ourApproach: "Our Expertise Includes",
@@ -73,7 +73,7 @@ const servicesData = {
         description: "Bring Warmth and Elegance to Your Interiors",
         headPara: "Wood adds a charm that no other material can match. Our wood polishing services are crafted to enhance your interiors with detail, creativity, and fine craftsmanship. From classic to contemporary styles, we design wooden features that elevate your space beautifully.",
         ourApproach: "Our Wood Polishing Services",
-        ourApproachPara: "We combine traditional craftsmanship with modern design to create stunning wooden elements tailored to your taste.",
+        ourApproachPara: "We combine traditional craftsmanship with modern Painting to create stunning wooden elements tailored to your taste.",
         whatWeOffer: [
             'Designer wall paneling',
             'Door & window profiling',

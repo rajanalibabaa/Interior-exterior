@@ -1,51 +1,53 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  IconButton,
-  Drawer,
-  List,
-  ListItemButton,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
-  BottomNavigation,
-  BottomNavigationAction,
-  Paper,
-  Menu,
-  MenuItem,
-} from "@mui/material";
-import {
-  Home,
-  Info,
-  DesignServices,
-  PhotoLibrary,
-  ContactPhone,
-  Close,
-  Phone,
-  Email,
-  KeyboardArrowDown,
-} from "@mui/icons-material";
+
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Paper from "@mui/material/Paper";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
+import Home from "@mui/icons-material/Home";
+import Info from "@mui/icons-material/Info";
+import DesignServices from "@mui/icons-material/DesignServices";
+import PhotoLibrary from "@mui/icons-material/PhotoLibrary";
+import ContactPhone from "@mui/icons-material/ContactPhone";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import StartIcon from "@mui/icons-material/Start";
+import Close from "@mui/icons-material/Close";
+import Phone from "@mui/icons-material/Phone";
+import Email from "@mui/icons-material/Email";
+
 import { motion } from "framer-motion";
 import logo from "../assets/Interiorexterior_logo.png";
-import { href, useNavigate } from 'react-router-dom'
-
+import { href, useNavigate } from "react-router-dom";
 
 const servicesItems = [
-  "Interior Design",
-  "Exterior Design",
-  "Waterproofing",
+  "Interior Painting",
+  "Exterior Painting",
+  "Water proofing",
   "Wood Polishing",
   "Commercial Painting",
 ];
+const googleMapsReviewsUrl = "https://www.google.com/maps/place/interiorandexteriorpainters/@13.0463975,80.218654,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267136e8fe8a3:0x2e08de250f5946b8!8m2!3d13.0463975!4d80.218654!16s%2Fg%2F11yqlpr17j?hl=en-IN&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D";
+
 
 const navigationItems = [
   { label: "Home", icon: <Home />, href: "/" },
   { label: "About us", icon: <Info />, href: "/about" },
   { label: "Services", icon: <DesignServices />, href: "/services" },
   { label: "Gallery", icon: <PhotoLibrary />, href: "/gallery" },
-  { label: "Contact us", icon: <ContactPhone />, href: "/contact" },
+  { label: "Contact", icon: <ContactPhone />, href: "/contact" },
+  {label:"Rate Us",icon:<StartIcon/>,href:googleMapsReviewsUrl},
 ];
 
 export default function Navigation() {
@@ -71,21 +73,18 @@ export default function Navigation() {
   };
 
   // Mobile bottom navigation handler
- const handleBottomNavChange = (event, newValue) => {
-  setBottomNavValue(newValue);
+  const handleBottomNavChange = (event, newValue) => {
+    setBottomNavValue(newValue);
 
-  const selectedItem = navigationItems[newValue];
+    const selectedItem = navigationItems[newValue];
 
-  if (selectedItem.label === "Services") {
-    setServicesDrawerOpen(true);
-    return;
-  }
+    if (selectedItem.label === "Services") {
+      setServicesDrawerOpen(true);
+      return;
+    }
 
-  navigate(selectedItem.href); // FIXED
-};
-
-
-
+    navigate(selectedItem.href,window.scrollTo(0, 0)); // FIXED
+  };
 
   // Handle Services click on desktop
   const handleServicesClick = (event) => {
@@ -108,12 +107,12 @@ export default function Navigation() {
         {!isMobile && (
           <Box sx={{ display: "flex", gap: 3 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <Phone sx={{ color: "#E74646" }} />
-              <Typography variant="body2">+1 (555) 123-4567</Typography>
+              <Phone sx={{ color: "#0097b1" }} />
+              <Typography variant="body2">+91 8248638595</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <Email sx={{ color: "#E74646" }} />
-              <Typography variant="body2">info@interiorexterior.com</Typography>
+              <Email sx={{ color: "#0097b1" }} />
+              <Typography variant="body2">info@interiorandexteriorpainters.com</Typography>
             </Box>
           </Box>
         )}
@@ -123,24 +122,22 @@ export default function Navigation() {
           src={logo}
           alt="Brand"
           style={{ height: isMobile ? 50 : 70, cursor: "pointer" }}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/",window.scrollTo(0, 0))}
         />
-
-
 
         {/* CTA Button */}
         <Button
           variant="contained"
-          onClick={() => navigate("/contact")}
+          onClick={() => navigate("/contact",window.scrollTo(0, 0))}
           sx={{
-
-            background: "#FF0060",
+            background: "#0097b1",
+            color: "white ",
             borderRadius: 30,
             padding: "8px 20px",
             textTransform: "none",
             fontWeight: 600,
             "&:hover": {
-              background: "#ff0062b5",
+              background: "#0097b1",
             },
           }}
           startIcon={<Phone />}
@@ -153,10 +150,11 @@ export default function Navigation() {
       {!isMobile && (
         <Box
           sx={{
-            background: "#FF0060",
-            maxWidth: '1250px',
+            background: "#0097b1",
+            maxWidth: "1250px",
             margin: "0 auto",
             color: "white",
+            fontWeight: 600,  
             padding: "0 20px",
             display: "flex",
             justifyContent: "space-evenly",
@@ -170,6 +168,7 @@ export default function Navigation() {
                 onClick={handleServicesClick}
                 sx={{
                   cursor: "pointer",
+                  color:'white    ',
                   display: "flex",
                   alignItems: "center",
                   padding: "16px 0",
@@ -179,7 +178,9 @@ export default function Navigation() {
                 {item.label}
                 <KeyboardArrowDown
                   sx={{
-                    transform: servicesMenuOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    transform: servicesMenuOpen
+                      ? "rotate(180deg)"
+                      : "rotate(0deg)",
                     transition: "0.3s",
                     ml: 0.5,
                   }}
@@ -188,7 +189,7 @@ export default function Navigation() {
             ) : (
               <Typography
                 key={item.label}
-onClick={() => navigate(item.href)}
+                onClick={() => navigate(item.href,window.scrollTo(0, 0))}
                 sx={{
                   cursor: "pointer",
                   padding: "16px 0",
@@ -208,24 +209,23 @@ onClick={() => navigate(item.href)}
             onClose={handleServicesMenuClose}
             sx={{
               "& .MuiPaper-root": {
-                background: "#4A102A",
+                background: "#0097b1",
                 color: "white",
                 marginTop: 1,
                 minWidth: 200,
               },
             }}
           >
-
             {servicesItems.map((service) => (
               <MenuItem
                 key={service}
                 onClick={() => {
                   handleServicesMenuClose();
-                  const path = service.toLowerCase().replace(/\s+/g, '');
-                  navigate(`/services/${path}`);
+                  const path = service.toLowerCase().replace(/\s+/g, "");
+                  navigate(`/services/${path} `,window.scrollTo(0, 0));
                 }}
                 sx={{
-                  "&:hover": { background: "#E83C91" },
+                  "&:hover": { background: "#63cbe0" },
                 }}
               >
                 {service}
@@ -253,7 +253,7 @@ onClick={() => navigate(item.href)}
             onChange={handleBottomNavChange}
             showLabels
             sx={{
-              background: "#E74646",
+              background: "#63cbe0",
               "& .MuiBottomNavigationAction-root": {
                 color: "black",
                 minWidth: "auto",
@@ -293,7 +293,7 @@ onClick={() => navigate(item.href)}
           sx: {
             width: 280,
             height: 370,
-            background: "#f21313ff",
+            background: "#0097b1",
             color: "white",
             borderTopLeftRadius: 12,
             borderBottomLeftRadius: 12,
@@ -317,7 +317,7 @@ onClick={() => navigate(item.href)}
             </Typography>
             <IconButton
               onClick={() => setServicesDrawerOpen(false)}
-              sx={{ color: "white" , }}
+              sx={{ color: "white" }}
             >
               <Close />
             </IconButton>
@@ -328,8 +328,8 @@ onClick={() => navigate(item.href)}
             {servicesItems.map((service) => (
               <ListItemButton
                 onClick={() => {
-                  const path = service.toLowerCase().replace(/\s+/g, '');
-                  navigate(`/services/${path}`);
+                  const path = service.toLowerCase().replace(/\s+/g, "");
+                  navigate(`/services/${path} `,window.scrollTo(0, 0));
                   setServicesDrawerOpen(false);
                 }}
               >
@@ -337,21 +337,6 @@ onClick={() => navigate(item.href)}
               </ListItemButton>
             ))}
           </List>
-
-          {/* Contact Info in Drawer */}
-          {/* <Box sx={{ mt: 4, p: 2, background: "rgba(255,255,255,0.1)", borderRadius: 2 }}>
-            <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 600 }}>
-              Contact Us
-            </Typography>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-              <Phone sx={{ fontSize: 18, color: "#E83C91" }} />
-              <Typography variant="body2">+1 (555) 123-4567</Typography>
-            </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Email sx={{ fontSize: 18, color: "#E83C91" }} />
-              <Typography variant="body2">info@interiorexterior.com</Typography>
-            </Box>
-          </Box> */}
         </Box>
       </Drawer>
     </Box>

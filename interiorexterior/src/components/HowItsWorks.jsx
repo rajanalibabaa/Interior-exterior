@@ -1,28 +1,40 @@
 import React from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+
+import Box  from '@mui/material/Box';
+import Typography  from '@mui/material/Typography';
+import Container  from '@mui/material/Container';
+import Grid  from '@mui/material/Grid';
+
 import DescriptionIcon from "@mui/icons-material/Description";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import { motion } from "framer-motion";
+
+import img1 from "../assets/interiorandexteriorhowitsworks1.jpg";
+import img2 from "../assets/interiorandexteriorhowitsworks2.jpg";
+import img3 from "../assets/interiorandexteriorhowitsworks3.jpg";
+import img4 from '../assets/interiorandexteriorsettingimage.jpg';
 
 const steps = [
   {
     id: 1,
     title: "Contact Us",
     desc: "Get in touch with us online or over the phone and tell us what you're looking for.",
-    icon: <DescriptionIcon sx={{ fontSize: 60, color: "#F5A623" }} />,
+    // icon: <DescriptionIcon sx={{ fontSize: 60, color: "#F5A623" }} />,
+    icon: img1,
   },
   {
     id: 2,
     title: "Get an estimate",
     desc: "Receive a free detailed estimate tailored to your specific painting needs.",
-    icon: <CalculateIcon sx={{ fontSize: 60, color: "#F5A623" }} />,
+    // icon: <CalculateIcon sx={{ fontSize: 60, color: "#F5A623" }} />,
+    icon: img2,
   },
   {
     id: 3,
     title: "Schedule the project",
     desc: "Choose a convenient date for us to begin transforming your space.",
-    icon: <EventAvailableIcon sx={{ fontSize: 60, color: "#F5A623" }} />,
+    icon: img3,
   },
 ];
 
@@ -51,7 +63,7 @@ const HowItWorks = () => {
             sx={{
               width: '100%',
               height: 2,
-              background: "#ff0062",
+              background: "#0097b1",
               // mx: "auto",
               position: "relative",
               mt: 1,
@@ -74,7 +86,7 @@ const HowItWorks = () => {
                 color: "#F5A623",
               }}
             >
-              🛠️
+              <img src={img4} alt="icon" style={{ width: "100px", height: "100%" }} />
             </Box>
           </Box>
 
@@ -106,7 +118,7 @@ const HowItWorks = () => {
               >
                <Box
   sx={{
-    background: "#FAF7F0",
+    background: "#ffffffff",
     p: 4,
     mb: index === 2 ? 4 : { xs: 3, sm: 3 }, 
     borderRadius: 2,
@@ -123,7 +135,7 @@ const HowItWorks = () => {
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      background: "#ff0062",
+                      background: "#0097b1",
                       color: "#fff",
                       px: 2,
                       
@@ -137,7 +149,7 @@ const HowItWorks = () => {
                   </Box>
 
                   {/* Icon */}
-                  <Box mb={2}>{step.icon}</Box>
+                  <Box component={'img'} src={step.icon} sx={{ width: 120, height: 100 ,objectFit: "contain"}}   mb={2}/>
 
                   {/* Title */}
                   <Typography variant="h6" fontWeight={700} mb={1}>

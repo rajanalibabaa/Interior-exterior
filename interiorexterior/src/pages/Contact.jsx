@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography, TextField, Button } from "@mui/material";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 import contactBanner from "../assets/ContactBanner.jpg"; 
 import right from "../assets/ContactUsSideimage.jpg";
+import FAQSection from "../components/Faq";
+import HowItWorks from "../components/HowItsWorks";
 
 const Contact = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -52,13 +58,12 @@ const Contact = () => {
     submissionData.append('_autoresponse', `Thank you ${formData.fullName} for requesting a FREE estimate! We will contact you shortly.`);
 
     // Submit the form data
-    fetch('https://formsubmit.co/4928bdeea462118f9e193be9cd0da148', {
+    fetch('https://formsubmit.co/3ab397a631791c830fa5cedc882dcce6', {
       method: 'POST',
       body: submissionData,
     })
     .then(response => {
       if (response.ok) {
-        console.log('Contact form submitted successfully');
         // Reset form
         setFormData({
           fullName: '',
@@ -227,7 +232,7 @@ const Contact = () => {
                   sx={{
                     width: "8px",
                     height: "8px",
-                    bgcolor: "#FFB74D",
+                    bgcolor: "#0097b1",
                     borderRadius: "50%",
                     mr: 2,
                     flexShrink: 0
@@ -252,13 +257,30 @@ const Contact = () => {
           onSubmit={handleSubmit}
           sx={{
             flex: 1,
-            backgroundColor: "#FFF6E9",
+            backgroundColor: "#21cdecff",
             padding: { xs: 3, md: 4 },
             borderRadius: "20px",
             boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            "& .MuiInputBase-input": {
+      color: "white",            // input text color
+    },
+    "& .MuiInputLabel-root": {
+      color: "white",            // label color
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white",    // default border
+      },
+      "&:hover fieldset": {
+        borderColor: "white",    // hover border
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white",    // focused border
+      },
+    },
           }}
         >
           <Typography
@@ -267,6 +289,7 @@ const Contact = () => {
               fontSize: { xs: "1.3rem", md: "1.5rem" },
               mb: 3,
               textAlign: "center",
+              color: "white"
             }}
           >
             Schedule A FREE Estimate!
@@ -313,6 +336,7 @@ const Contact = () => {
             size="small"
             value={formData.message}
             onChange={handleChange}
+            required
           />
 
           <Button
@@ -320,7 +344,7 @@ const Contact = () => {
             variant="contained"
             fullWidth
             sx={{
-              backgroundColor: "#FFB74D",
+              backgroundColor: "#0097b1",
               color: "black",
               fontWeight: 600,
               textTransform: "none",
@@ -328,7 +352,7 @@ const Contact = () => {
               borderRadius: "10px",
               py: 1.5,
               '&:hover': {
-                backgroundColor: "#FFA726",
+                backgroundColor: "#0097b1",
               }
             }}
           >
@@ -392,6 +416,8 @@ const Contact = () => {
           </Box>
         </Box>
       )}
+      <HowItWorks/>
+      <FAQSection/>
     </>
   );
 };

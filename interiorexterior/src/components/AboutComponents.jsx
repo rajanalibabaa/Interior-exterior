@@ -1,9 +1,13 @@
-import React from "react";
-import { Box, Container, Grid, Typography, IconButton } from "@mui/material";
+
+
+import Grid  from '@mui/material/Grid';
+import Box  from '@mui/material/Box';
+import Typography  from '@mui/material/Typography';
+import Container  from '@mui/material/Container';
+
+
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import VerifiedIcon from "@mui/icons-material/Verified";
-import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
-import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import video1 from "../assets/interiorexteriorabout.mp4";
 
 // Video/image
@@ -18,13 +22,13 @@ export default function AboutUsSection() {
                      variant="h6"
                      fontWeight={700}
                      letterSpacing={2}
-                     sx={{ color: "#77037B", mb: 1,
+                     sx={{ color: "#0097b1", mb: 1,
                        '&::before': {
                          content: '""',
                          display: 'block',
                          width: 90,
                          height: 3,
-                         background: '#F94A29',
+                         background: '#000000ff',
                          mb: 1
                        }
        
@@ -58,9 +62,9 @@ export default function AboutUsSection() {
                 mb: 3,
               }}
             >
-              <Box sx={{ height: 3, flexGrow: 1, backgroundColor: "#ff0062" }} />
-              <VerifiedIcon sx={{ color: "#ffbb10ff", fontSize: 28 }} />
-              <Box sx={{ height: 3, flexGrow: 1, backgroundColor: "#ff0062" }} />
+              <Box sx={{ height: 3, flexGrow: 1, backgroundColor: "#0097b1" }} />
+              <VerifiedIcon sx={{ color: "#000000ff", fontSize: 28 }} />
+              <Box sx={{ height: 3, flexGrow: 1, backgroundColor: "#0097b1" }} />
             </Box>
 
         <Grid container spacing={4} alignItems="flex-start" display={"flex"} flexDirection={"row"}>
@@ -68,8 +72,8 @@ export default function AboutUsSection() {
           <Grid item xs={12} md={7}>
             
             <Typography sx={{ color: "#000000ff", mb: 3 }}>
-              Interior & Exterior was created in 2020 with a vision to modernize the painting
-              industry.<br/> We wanted to create a service that was easy, stress-free,
+              Interior and Exterior Painters was created in 2020 with a vision to modernize<br/> the painting
+              industry. We wanted to create a service that was easy,<br/> stress-free,
               and reliable. When you contact us,<br/> we ensure confidence that your
               vision will be delivered exactly as you imagine.
             </Typography>
@@ -83,7 +87,7 @@ export default function AboutUsSection() {
                 "Commitment to customer satisfaction",
               ].map((item, index) => (
                 <Box key={index} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <CheckCircleIcon sx={{ color: "#ff0062", fontSize: 20 }} />
+                  <CheckCircleIcon sx={{ color: "#0097b1", fontSize: 20 }} />
                   <Typography sx={{ color: "#000000ff" }}>{item}</Typography>
                 </Box>
               ))}

@@ -1,6 +1,10 @@
 import React from 'react'
-import { Box, Button, Typography } from '@mui/material'
-import logo from '../assets/interiorexteriorprofilelogo.jpg'
+
+import Button  from '@mui/material/Button';
+import Box  from '@mui/material/Box';
+import Typography  from '@mui/material/Typography';
+
+import logo from '../assets/interiorexteriorprofilelogo1.jpg'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -44,7 +48,7 @@ const CenterBanner = () => {
           sx={{
             display: "flex",
             flexDirection: "row",
-            backgroundColor: "wheat",
+            backgroundColor: "#0097b1",
             p: 2,
             gap: 2,
             borderRadius: 2,
@@ -56,34 +60,36 @@ const CenterBanner = () => {
           <Box 
             component="img" 
             src={logo} 
+            alt="logo"
+            sx={{ objectFit: "cover" }}
             height={50} 
             width={50} 
             borderRadius={"50%"} 
           />
 
           <Box>
-            <Typography fontWeight={600}>Any Question?</Typography>
-            <Typography fontWeight={700}>+91 9999999999</Typography>
+            <Typography fontWeight={600} color='white'>Any Question?</Typography>
+            <Typography fontWeight={700} color='white'>+91 8248638595</Typography>
           </Box>
         </Box>
 
         {/* BUTTON */}
         <Button
           variant="contained"
-          onClick={()=> navigate ('/contact')}
+          onClick={()=> navigate ('/contact',window.scrollTo(0, 0))}
           sx={{
             mt: 1,
             px: { xs: 3, sm: 3 },
             py: { xs: 1.2, sm: 1.3 },
-            background: "#ff0062ff",
-            color: "#ffffff",
-            fontWeight: 800,
+            background: "#0097b1",
+            color: "#ffffffff",
+            fontWeight: 600,
             fontSize: { xs: "14px", sm: "16px" },
             borderRadius: 2,
             textTransform: "none",
-            width: { xs: "100%", sm: "auto" }, 
+            width: { xs: "100%", sm: "auto", md: "100%" }, 
             "&:hover": {
-              background: "#ff0062e7",
+              background: "#0097b1",
             },
           }}
         >

@@ -1,6 +1,9 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography, Button, Grid } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+
 import StarIcon from "@mui/icons-material/Star";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
@@ -30,7 +33,7 @@ export default function WhyChooseUs() {
     <Box
       sx={{
         py: { xs: 5, sm: 7, md: 4, lg: 1 },
-px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
+        px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
         maxWidth: "1440px",
         mx: "auto",
       }}
@@ -44,26 +47,26 @@ px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-           <Typography
-                           variant="h6"
-                           fontWeight={700}
-                           letterSpacing={2}
-                           sx={{
-                             textAlign: { xs: "center", md: "left" },
-                             color: "#77037B",
-                             mb: 1,
-                             fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
-                             '&::before': {
-                               content: '""',
-                               display: 'block',
-                               width: { xs: 70, sm: 80, md: 90 },
-                               height: 3,
-                               background: '#F94A29',
-                               mb: 1,
-                               marginInline: { xs: "auto", md: 0 }
-                             }
-                           }}
-                         >
+            <Typography
+              variant="h6"
+              fontWeight={700}
+              letterSpacing={2}
+              sx={{
+                textAlign: { xs: "center", md: "left" },
+                color: "#0097b1",
+                mb: 1,
+                fontSize: { xs: "1.9rem", sm: "2rem", md: "2.125rem" },
+                "&::before": {
+                  content: '""',
+                  display: "block",
+                  width: { xs: 70, sm: 80, md: 90 },
+                  height: 3,
+                  background: "#000000ff",
+                  mb: 1,
+                  marginInline: { xs: "auto", md: 0 },
+                },
+              }}
+            >
               WHY CHOOSE US
             </Typography>
           </motion.div>
@@ -75,22 +78,22 @@ px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
             transition={{ duration: 0.7 }}
           >
             <Typography
-                           variant="h3"
-                           fontWeight={900}
-                           sx={{
-                             mb: 3,
-                             lineHeight: 1.2,
-                             fontSize: { 
-                               xs: "1.2rem", 
-                               sm: "1.8rem", 
-                               md: "2.2rem", 
-                               lg: "2.0rem" 
-                             },
-                             background: "linear-gradient(90deg, #0F1B2D, #153E90)",
-                             WebkitBackgroundClip: "text",
-                             WebkitTextFillColor: "transparent",
-                           }}
-                         >
+              variant="h3"
+              fontWeight={900}
+              sx={{
+                mb: 3,
+                lineHeight: 1.2,
+                fontSize: {
+                  xs: "1.2rem",
+                  sm: "1.8rem",
+                  md: "2.2rem",
+                  lg: "2.0rem",
+                },
+                background: "linear-gradient(90deg, #0F1B2D, #153E90)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               We Deliver Trusted Residential & Commercial Painting Services
             </Typography>
           </motion.div>
@@ -115,7 +118,7 @@ px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
                     sx={{
                       width: { xs: 48, sm: 50, md: 55 },
                       height: { xs: 48, sm: 50, md: 55 },
-                      bgcolor: "#AB46D2",
+                      bgcolor: "#63cbe0",
                       borderRadius: { xs: "12px", md: "14px" },
                       display: "flex",
                       alignItems: "center",
@@ -131,28 +134,28 @@ px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
                     <Typography
                       variant="h6"
                       fontWeight={700}
-                      sx={{ 
+                      sx={{
                         mb: { xs: 0.5, sm: 0.8 },
-                        fontSize: { 
-                          xs: "1rem", 
-                          sm: "1.1rem", 
-                          md: "1.125rem" 
+                        fontSize: {
+                          xs: "1rem",
+                          sm: "1.1rem",
+                          md: "1.125rem",
                         },
-                        lineHeight: 1.3
+                        lineHeight: 1.3,
                       }}
                     >
                       {item.title}
                     </Typography>
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
+                    <Typography
+                      variant="body1"
+                      sx={{
                         color: "#555",
-                        fontSize: { 
-                          xs: "0.875rem", 
-                          sm: "0.9rem", 
-                          md: "1rem" 
+                        fontSize: {
+                          xs: "0.875rem",
+                          sm: "0.9rem",
+                          md: "1rem",
                         },
-                        lineHeight: 1.6
+                        lineHeight: 1.6,
                       }}
                     >
                       {item.desc}
@@ -164,44 +167,41 @@ px: { xs: 2, sm: 3, md: 6, lg: 10, xl: 6 },
           </Box>
 
           {/* CTA Button */}
-         <motion.div
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.8 }}
->
-  <Box
-    sx={{
-      textAlign: { xs: "center", sm: "left" },  // CENTER on XS
-      width: "100%",
-    }}
-  >
-    <Button
-    onClick={()=> navigate('/contact')}
-      variant="contained"
-      sx={{
-        mt: { xs: 1, sm: 2 },
-        px: { xs: 3, sm: 4 },
-        py: { xs: 1.2, sm: 1.5 },
-        background: "#ff0062ff",
-        color: "#ffffffff",
-        fontWeight: 800,
-        fontSize: { xs: "14px", sm: "15px", md: "16px" },
-        borderRadius: 2,
-        textTransform: "none",
-        minWidth: { xs: "200px", sm: "auto" },
-        "&:hover": {
-          background: "#ff0062e7",
-        },
-      }}
-    >
-      Get a Free Estimate
-    </Button>
-  </Box>
-</motion.div>
-
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Box
+              sx={{
+                textAlign: { xs: "center", sm: "left" }, // CENTER on XS
+                width: "100%",
+              }}
+            >
+              <Button
+                onClick={() => navigate("/contact",window.scrollTo(0, 0))}
+                variant="contained"
+                sx={{
+                  mt: { xs: 1, sm: 2 },
+                  px: { xs: 3, sm: 4 },
+                  py: { xs: 1.2, sm: 1.5 },
+                  background: "#0097b1",
+                  color: "#ffffffff",
+                  fontWeight: 800,
+                  fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                  borderRadius: 2,
+                  textTransform: "none",
+                  minWidth: { xs: "200px", sm: "auto" },
+                  "&:hover": {
+                    background: "#63cbe0",
+                  },
+                }}
+              >
+                Get a Free Estimate
+              </Button>
+            </Box>
+          </motion.div>
         </Grid>
-
-     
       </Grid>
     </Box>
   );

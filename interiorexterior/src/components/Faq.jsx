@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
+
+
+import Accordion  from '@mui/material/Accordion';
+import Box  from '@mui/material/Box';
+import Typography  from '@mui/material/Typography';
+import Container  from '@mui/material/Container';
+import AccordionSummary  from '@mui/material/AccordionSummary';
+import AccordionDetails  from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 
 const faqData = [
   {

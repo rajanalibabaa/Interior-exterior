@@ -1,25 +1,22 @@
 import React, { useState, useRef } from 'react';
-import {
-  Box,
-  Button,
-  Typography,
-  Container,
-  Chip,
-  useTheme,
-  useMediaQuery,
-  Dialog,
-  Fab,
-  IconButton
-} from '@mui/material';
+import {useTheme,useMediaQuery,} from '@mui/material';
+
+import Button  from '@mui/material/Button';
+import Box  from '@mui/material/Box';
+import Typography  from '@mui/material/Typography';
+import Container  from '@mui/material/Container';
+import Chip  from '@mui/material/Chip';
+import Dialog  from '@mui/material/Dialog';
+import Fab  from '@mui/material/Fab';
+import IconButton  from '@mui/material/IconButton';
 import { motion, useInView } from 'framer-motion';
-import {
-  Star,
-  Email,
-  LocationOn,
-  Schedule,
-  Close
-} from '@mui/icons-material';
+
 import MessageIcon from '@mui/icons-material/Message';
+import Star from '@mui/icons-material/Star';
+import Email from '@mui/icons-material/Email';
+import LocationOn from '@mui/icons-material/LocationOn';
+import Schedule from '@mui/icons-material/Schedule';
+import Close from '@mui/icons-material/Close';
 import EnquiryForm from './EnquiryForm';
 import { useNavigate } from 'react-router-dom';
 
@@ -39,7 +36,7 @@ const FeatureChip = ({ icon, text, delay = 0 }) => (
       icon={icon}
       label={text}
       sx={{
-        background: 'linear-gradient(135deg, rgba(250, 243, 45, 0.15) 0%, rgba(247, 247, 33, 0.41) 100%)',
+        // background: 'linear-gradient(135deg, rgba(250, 243, 45, 0.15) 0%, rgba(247, 247, 33, 0.41) 100%)',
         backdropFilter: 'blur(15px)',
         border: '1px solid rgba(255,255,255,0.25)',
         color: 'white',
@@ -49,7 +46,7 @@ const FeatureChip = ({ icon, text, delay = 0 }) => (
         px: 1,
         m: 0.5,
         '& .MuiChip-icon': {
-          color: '#FFCC00',
+          color: '#ffffffff',
           fontSize: '1rem'
         }
       }}
@@ -66,6 +63,9 @@ const FloatingMobileEnquiryButton = ({ onClick }) => (
     whileTap={{ scale: 0.9 }}
     style={{
       position: 'fixed',
+      bottom: 270,
+      right: 3,
+       
       zIndex: 9999,
     }}
   >
@@ -73,14 +73,17 @@ const FloatingMobileEnquiryButton = ({ onClick }) => (
       color="primary"
       aria-label="get quote"
       onClick={onClick}
-      sx={{
-        width: { xs: 54, sm: 58, md: 52 },
-        height: { xs: 54, sm: 58, md: 52 },
-        left: { xs: 300,sm: 685,},
-        bottom: { xs: 220, sm: 90,  },
-        background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-        boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
-      }}
+     sx={{
+  position: "sticky",
+  width: { xs: 58, sm: 58, md: 52 },
+  height: { xs: 58, sm: 58, md: 52 },
+  right: {  sm: 30, md: 40 },   // keep icon inside on all screens
+  bottom: { xs: 20, sm: 30, md: 40 },  // comfortable bottom spacing
+  background: "linear-gradient(135deg, #25D366 0%, #128C7E 100%)",
+  boxShadow: "0 4px 20px rgba(37, 211, 102, 0.4)",
+  borderRadius: "50%",
+  zIndex: 9999,
+}}
     >
       <MessageIcon
         sx={{
@@ -90,20 +93,7 @@ const FloatingMobileEnquiryButton = ({ onClick }) => (
       />
     </Fab>
 
-    {/* Floating notification dot */}
-    {/* <Box
-      sx={{
-        position: 'absolute',
-        top: 8,
-        right: 8,
-        width: 12,
-        height: 12,
-        backgroundColor: '#FF4081',
-        borderRadius: '50%',
-        border: '2px solid white',
-        animation: 'pulse 1.5s infinite'
-      }}
-    /> */}
+    
   </motion.div>
 );
 
@@ -131,7 +121,7 @@ const ProfessionalHeroBanner = () => {
       ref={containerRef}
       sx={{
         p: { xs: 2, sm: 4, md: 9 },
-        mt: { xs: 0, md: 1 },
+        mt: { xs: 0, md: 0 },
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -140,7 +130,7 @@ const ProfessionalHeroBanner = () => {
         minHeight: { xs: 'auto', md: '50vh' }
       }}
     >
-      <Container maxWidth="xl" sx={{ py: { xs: 2, md: 0 } }}>
+      <Container maxWidth="xl" sx={{ py: { xs: 3, md: 0 } }}>
         <Box
           sx={{
             display: 'grid',
@@ -185,7 +175,7 @@ const ProfessionalHeroBanner = () => {
                   textAlign: { xs: "center", lg: "left" },
                   mb: 2,
                   lineHeight: 1.2,
-                  background: "linear-gradient(135deg, #FFF58A 0%, #FFFFFF 100%)",
+                  background: "linear-gradient(135deg, #0097b1 0%, #FFFFFF 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -194,12 +184,12 @@ const ProfessionalHeroBanner = () => {
               >
                 Welcome to !!
                 <Box component="br" sx={{ display: { xs: 'block', sm: 'block' } }} />
-                Interior & Exterior
-                <Box component="br" />
+                Interior And  Exterior Painters 
+                <Box component="br" /> 
                 <Box
                   component="span"
                   sx={{
-                    background: "linear-gradient(135deg, #FFF58A 0%, #FFFFFF 100%)",
+                    background: "linear-gradient(135deg, #0097b1 0%, #FFFFFF 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -266,10 +256,10 @@ const ProfessionalHeroBanner = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   variant="contained"
-                  onClick={() => navigate('/services')}
+                  onClick={() => navigate('/services/interiordesign',window.scrollTo(0, 0)  )}
                   size="large"
                   sx={{
-                    background: "#AB46D2",
+                    background: "#0097b1",
                     fontWeight: 700,
                     px: { xs: 3, sm: 4 },
                     py: 1.8,
@@ -314,7 +304,7 @@ const ProfessionalHeroBanner = () => {
             >
               <IconButton
                 onClick={() => setOpenMobileForm(false)}
-                sx={{ position: 'absolute', top: 8, right: 8, zIndex: 10 }}
+                sx={{ position: 'absolute', top: 0, right: 0, zIndex: 10, }}
               >
                 <Close color='error' />
               </IconButton>
