@@ -20,7 +20,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import google from '../assets/Interiorexteriorgoogle.webp';
 // Replace this with your Google Maps place reviews URL
-const googleMapsReviewsUrl = "https://www.google.com/maps/place/interiorandexteriorpainters/@13.0463975,80.218654,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267136e8fe8a3:0x2e08de250f5946b8!8m2!3d13.0463975!4d80.218654!16s%2Fg%2F11yqlpr17j?hl=en-IN&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D";
+const googleMapsReviewsUrl = "https://www.google.com/maps/place/Interior+and+Exterior+Painters/@13.0365646,80.2177705,17z/data=!4m16!1m9!3m8!1s0x639b585e7802da2f:0xf91e8aa9132741a6!2sInterior+and+Exterior+Painters!8m2!3d13.0365646!4d80.2177705!9m1!1b1!16s%2Fg%2F11yrwtmq03!3m5!1s0x639b585e7802da2f:0xf91e8aa9132741a6!8m2!3d13.0365646!4d80.2177705!16s%2Fg%2F11yrwtmq03?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D";
 export default function Footer() {
   const navigate = useNavigate();
 

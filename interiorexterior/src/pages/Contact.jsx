@@ -80,6 +80,24 @@ const Contact = () => {
     });
   };
 
+ let scrollAmount;
+
+if (window.innerWidth <= 600) {
+  // Mobile
+  scrollAmount = 1100;
+} else if (window.innerWidth <= 1024) {
+  // Tablet
+  scrollAmount = 300;
+} else {
+  // Desktop
+  scrollAmount = 400;
+}
+
+window.scrollTo({
+  top: scrollAmount,
+  behavior: "smooth"
+});
+
   return (
     <>
       {/* Banner Section */}
