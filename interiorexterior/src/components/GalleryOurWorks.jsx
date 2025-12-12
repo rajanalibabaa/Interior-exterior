@@ -61,7 +61,7 @@ const GalleryPage = () => {
     img8, img9, img10, img11, img12, img13, img14, img15
   ];
 
-  const [activeTab, setActiveTab] = useState("images");
+  const [activeTab, setActiveTab] = useState("videos");
 
   // Image Gallery State
   const [activeDisplayIndex, setActiveDisplayIndex] = useState(0);
@@ -135,7 +135,7 @@ const GalleryPage = () => {
 
       {/* Tabs */}
       <Box sx={{ display: "flex", justifyContent: "center", gap: 3, mb: 5 }}>
-        <Button
+        {/* <Button
           onClick={() => setActiveTab("images")}
           sx={{
             background: activeTab === "images" ? "#0097b1" : "#ddd",
@@ -147,7 +147,7 @@ const GalleryPage = () => {
           }}
         >
           Images
-        </Button>
+        </Button> */}
 
         <Button
           onClick={() => setActiveTab("videos")}
@@ -165,9 +165,9 @@ const GalleryPage = () => {
       </Box>
 
       {/* ===================== IMAGES SECTION ===================== */}
-      {activeTab === "images" && (
+      {/* {activeTab === "images" && (
         <>
-          {/* Slideshow */}
+          {/* Slideshow *
           <Box
             sx={{
               position: "relative",
@@ -197,7 +197,7 @@ const GalleryPage = () => {
               />
             </AnimatePresence>
 
-            {/* Arrows */}
+            {/* Arrows *
             <IconButton
               onClick={(e) => {
                 e.stopPropagation();
@@ -235,7 +235,7 @@ const GalleryPage = () => {
             </IconButton>
           </Box>
 
-          {/* Thumbnails */}
+          {/* Thumbnails *
           <Box
             sx={{
               display: "flex",
@@ -275,7 +275,7 @@ const GalleryPage = () => {
             ))}
           </Box>
 
-          {/* Image Modal */}
+          {/* Image Modal *
           <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} fullWidth maxWidth="lg">
             <Box sx={{ position: "relative", background: "black" }}>
               <IconButton
@@ -305,7 +305,7 @@ const GalleryPage = () => {
             </Box>
           </Dialog>
         </>
-      )}
+      )} */}
 
       {/* ===================== VIDEOS SECTION ===================== */}
      {activeTab === "videos" && (
